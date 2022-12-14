@@ -1,0 +1,50 @@
+name: "login"
+author: "chenx3n"
+author_link: "https://github.com/malikDaCoda"
+
+category: general-skills
+difficulty: easy
+
+description: |
+  > This challenge tests your ability in understanding shell scripts, check `login.sh`
+  > and connect to the remote service using the command below  
+
+  **Author** : chenx3n
+
+connection_info: nc scripting.ctf.shellmates.club ${PORT}
+
+value: 100
+type: standard
+
+flags:
+  - shellmates{L33E3Et_uSeR}
+
+tags:
+  - bash
+  
+files:
+  - login.sh
+
+state: hidden
+
+version: "0.1"
+deployment:
+  autoban: false
+  containerPort: 22
+  deployed: false
+  dockerImage: login
+  dockerRepository: gcr.io/mentoring-program-371116
+  egress: deny
+  healthCheck:
+    initialDelaySeconds: 10
+    periodSeconds: 30
+  limits:
+    cpu: 100m
+    memory: 100Mi
+  name: login
+  nodePort: 
+  replicasNumber: 1
+  requests:
+    cpu: 50m
+    memory: 50Mi
+  type: tcp

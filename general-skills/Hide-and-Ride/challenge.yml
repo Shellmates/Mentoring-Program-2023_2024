@@ -1,0 +1,44 @@
+name: "Hide and Ride"
+author: "Imène"
+
+category: general-skills
+difficulty: easy
+
+description: |
+  > Are you able to see all of what is being hidden underneath the hood?  
+
+  **Password** : ctf
+  **Author** : Imène
+
+connection_info: ssh -p ${PORT} ctf@10.0.4.230 
+
+value: 70
+type: standard
+
+flags:
+  - shellmates{N0!_I_w4S_Pr3tty_SuR3_I_hld_W3ll}
+tags:
+  - linux
+state: hidden
+
+version: "0.1"
+deployment:
+  autoban: false
+  containerPort: 22
+  deployed: false
+  dockerImage: hide-and-ride
+  dockerRepository: gcr.io/mentoring-program-371116
+  egress: deny
+  healthCheck:
+    initialDelaySeconds: 10
+    periodSeconds: 30
+  limits:
+    cpu: 100m
+    memory: 100Mi
+  name: hide-and-ride
+  nodePort: 
+  replicasNumber: 1
+  requests:
+    cpu: 50m
+    memory: 50Mi
+  type: tcp

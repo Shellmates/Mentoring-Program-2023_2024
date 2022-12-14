@@ -1,0 +1,44 @@
+name: "README"
+author: "Imène"
+
+category: general-skills
+difficulty: easy
+
+description: |
+  > what a day, it is raining cats and dogs isn't it?  
+
+  **Password** : ctf
+  **Author** : Imène
+
+connection_info: ssh -p ${PORT} ctf@10.0.4.230 
+
+value: 50
+type: standard
+
+flags:
+  - shellmates{Y0u_c4ught_M3_Cat_c0mm4nd_must_h4v3_h3lp3ed}
+tags:
+  - linux
+state: hidden
+
+version: "0.1"
+deployment:
+  autoban: false
+  containerPort: 22
+  deployed: false
+  dockerImage: README
+  dockerRepository: gcr.io/mentoring-program-371116
+  egress: deny
+  healthCheck:
+    initialDelaySeconds: 10
+    periodSeconds: 30
+  limits:
+    cpu: 100m
+    memory: 100Mi
+  name: README
+  nodePort: 
+  replicasNumber: 1
+  requests:
+    cpu: 50m
+    memory: 50Mi
+  type: tcp

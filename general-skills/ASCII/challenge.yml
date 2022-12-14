@@ -1,0 +1,24 @@
+name: "ASCII"
+author: "Imène"
+
+category: crypto
+difficulty: easy
+
+description: |
+  >  I am pretty sure you have heard about ASCII haven't you?
+  **Author** : Imène
+value: 50
+type: standard
+
+flags:
+  - shellmates{4sCiI_tr4nsl4t3s_Ch4Rs_t0_InTs}
+
+tags:
+  - ASCII
+
+files:
+  - ./enc
+
+state: hidden
+
+version: "0.1"

@@ -1,0 +1,47 @@
+name: "Users"
+author: "F100w"
+
+category: general-skills
+difficulty: medium
+
+description: |
+  > Check the available users in the system    
+
+  **Password** : ctf  
+  **Author** : F100w  
+
+connection_info: ssh -p ${PORT} ctf@domain 
+
+value: 150
+type: standard
+
+
+flags:
+  - shellmates{gg_Y0u_F0Und_M3}
+
+tags:
+  - linux
+  
+state: hidden
+
+version: "0.1"
+deployment:
+  autoban: false
+  containerPort: 22
+  deployed: false
+  dockerImage: users
+  dockerRepository: gcr.io/mentoring-program-371116
+  egress: deny
+  healthCheck:
+    initialDelaySeconds: 10
+    periodSeconds: 30
+  limits:
+    cpu: 100m
+    memory: 100Mi
+  name: users
+  nodePort: 
+  replicasNumber: 1
+  requests:
+    cpu: 50m
+    memory: 50Mi
+  type: tcp
