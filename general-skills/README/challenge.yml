@@ -26,7 +26,7 @@ deployment:
   autoban: false
   containerPort: 22
   deployed: false
-  dockerImage: README
+  dockerImage: readme
   dockerRepository: gcr.io/mentoring-program-371116
   egress: deny
   healthCheck:
@@ -35,7 +35,7 @@ deployment:
   limits:
     cpu: 100m
     memory: 100Mi
-  name: README
+  name: readme
   nodePort: 
   replicasNumber: 1
   requests:
