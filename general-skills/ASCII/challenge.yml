@@ -1,25 +1,17 @@
-name: "ASCII"
-author: "Imène"
-
+author: "Im\xE8ne"
 category: crypto
+description: ">  I am pretty sure you have heard about ASCII haven't you?\n**Author**\
+  \ : Im\xE8ne\n"
 difficulty: easy
-
-description: |
-  >  I am pretty sure you have heard about ASCII haven't you?
-  **Author** : Imène
-value: 50
-type: standard
-
-flags:
-  - shellmates{4sCiI_tr4nsl4t3s_Ch4Rs_t0_InTs}
-
-tags:
-  - ASCII
-
 files:
-  - ./enc
-
+- ./enc
+flags:
+- shellmates{4sCiI_tr4nsl4t3s_Ch4Rs_t0_InTs}
+name: ASCII
 state: hidden
-
-version: "0.1"
+tags:
+- ASCII
+type: standard
+value: 50
+version: '0.1'
 wave: 1

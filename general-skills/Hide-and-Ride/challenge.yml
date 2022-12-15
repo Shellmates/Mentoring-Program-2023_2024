@@ -1,31 +1,10 @@
-name: "Hide and Ride"
-author: "Imène"
-
+author: "Im\xE8ne"
 category: general-skills
-difficulty: easy
-
-description: |
-  > Are you able to see all of what is being hidden underneath the hood?  
-
-  **Password** : ctf
-  **Author** : Imène
-
-connection_info: ssh -p ${PORT} ctf@10.0.4.230 
-
-value: 70
-type: standard
-
-flags:
-  - shellmates{N0!_I_w4S_Pr3tty_SuR3_I_hld_W3ll}
-tags:
-  - linux
-state: hidden
-
-version: "0.1"
+connection_info: ssh -p 1702 ctf@10.0.4.230
 deployment:
   autoban: false
   containerPort: 22
-  deployed: false
+  deployed: true
   dockerImage: hide-and-ride
   dockerRepository: gcr.io/mentoring-program-371116
   egress: deny
@@ -36,11 +15,22 @@ deployment:
     cpu: 100m
     memory: 100Mi
   name: hide-and-ride
-  nodePort: 
+  nodePort: 30702
   replicasNumber: 1
   requests:
     cpu: 10m
     memory: 30Mi
   type: tcp
-
+description: "> Are you able to see all of what is being hidden underneath the hood?\
+  \  \n\n**Password** : ctf\n**Author** : Im\xE8ne\n"
+difficulty: easy
+flags:
+- shellmates{N0!_I_w4S_Pr3tty_SuR3_I_hld_W3ll}
+name: Hide and Ride
+state: hidden
+tags:
+- linux
+type: standard
+value: 70
+version: '0.1'
 wave: 1

@@ -1,29 +1,18 @@
-name: "From Base to maze"
-author: "Imène"
-
+author: "Im\xE8ne"
 category: crypto
+description: ">  Too many bases out there, don't you think?\nThere is one out there\
+  \ that converts Bytes to ASCII, have you heard about it?\nThe 64th one must be a\
+  \ thing\n**Author** : Im\xE8ne\n"
 difficulty: medium
-
-description: |
-  >  Too many bases out there, don't you think?
-  There is one out there that converts Bytes to ASCII, have you heard about it?
-  The 64th one must be a thing
-  **Author** : Imène
-
-value: 100
-type: standard
-
-flags:
-  - shellmates{b64_c0nv3rts_Byt3s_t0_ASCII}
-
-tags:
-  - Base64
-
 files:
-  - ./enc
-
+- ./enc
+flags:
+- shellmates{b64_c0nv3rts_Byt3s_t0_ASCII}
+name: From Base to maze
 state: hidden
-
-version: "0.1"
-
+tags:
+- Base64
+type: standard
+value: 100
+version: '0.1'
 wave: 1

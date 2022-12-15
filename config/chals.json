@@ -1,1 +1,42 @@
-{}
+{
+    "login": {
+        "name": "login",
+        "subdomain": "login",
+        "type": "tcp",
+        "category": "general-skills",
+        "autoban": false,
+        "path": "general-skills/login",
+        "nodeport": 30700,
+        "port": 1700
+    },
+    "readme": {
+        "name": "readme",
+        "subdomain": "readme",
+        "type": "tcp",
+        "category": "general-skills",
+        "autoban": false,
+        "path": "general-skills/README",
+        "nodeport": 30701,
+        "port": 1701
+    },
+    "hide-and-ride": {
+        "name": "hide-and-ride",
+        "subdomain": "hide-and-ride",
+        "type": "tcp",
+        "category": "general-skills",
+        "autoban": false,
+        "path": "general-skills/Hide-and-Ride",
+        "nodeport": 30702,
+        "port": 1702
+    },
+    "users": {
+        "name": "users",
+        "subdomain": "users",
+        "type": "tcp",
+        "category": "general-skills",
+        "autoban": false,
+        "path": "general-skills/users",
+        "nodeport": 30703,
+        "port": 1703
+    }
+}
