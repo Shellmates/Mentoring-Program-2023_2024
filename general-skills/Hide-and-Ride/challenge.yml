@@ -42,3 +42,5 @@ deployment:
     cpu: 10m
     memory: 30Mi
   type: tcp
+
+wave: 1
