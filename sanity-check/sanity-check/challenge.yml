@@ -1,0 +1,22 @@
+name: "Sanity Check"
+author: "souad"
+
+category: sanity-check
+difficulty: easy
+
+description: |
+  > This is only a sanity check to make sure that you can connect to challenges.   
+
+  **Author** : souad
+
+connection_info: nc -v ${PORT} general.challs.ctf.shellmates.club
+
+value: 10
+type: standard
+
+flags:
+  - shellmates{3V3rYth1NG_1S_l00k1Ng_G00D_Y0U_C4N_start} 
+
+state: hidden
+
+version: "0.1"
