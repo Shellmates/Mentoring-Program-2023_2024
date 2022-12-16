@@ -4,7 +4,7 @@ category: general-skills
 connection_info: nc scripting.ctf.shellmates.club 1700
 deployment:
   autoban: false
-  containerPort: 22
+  containerPort: 1337
   deployed: true
   dockerImage: login
   dockerRepository: gcr.io/mentoring-program-371116
