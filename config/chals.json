@@ -38,5 +38,15 @@
         "path": "general-skills/login",
         "nodeport": 30700,
         "port": 1700
+    },
+    "sanity-check": {
+        "name": "sanity-check",
+        "subdomain": "sanity-check",
+        "type": "tcp",
+        "category": "sanity-check",
+        "autoban": false,
+        "path": "sanity-check/sanity-check",
+        "nodeport": 30800,
+        "port": 1800
     }
 }

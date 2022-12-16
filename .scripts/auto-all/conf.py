@@ -69,6 +69,7 @@ CHAL_DIRS = {
     "reverse",
     "web",
     "general-skills",
+    "sanity-check",
 }
 AUTOBAN_DEFAULT = False
 FW_PRIORITY = 1000

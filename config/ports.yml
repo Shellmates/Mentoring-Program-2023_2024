@@ -5,4 +5,5 @@ linux: 1100
 misc: 1200
 pwn: 1400
 reverse: 1500
+sanity-check: 1801
 web: 1600
