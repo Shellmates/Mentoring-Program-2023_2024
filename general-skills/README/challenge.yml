@@ -1,6 +1,6 @@
 author: "Im\xE8ne"
 category: general-skills
-connection_info: ssh -p 1701 ctf@10.0.4.230
+connection_info: ssh -p 1701 ctf@general.challs.ctf.shellmates.club
 deployment:
   autoban: false
   containerPort: 22

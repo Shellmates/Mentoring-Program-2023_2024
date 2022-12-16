@@ -1,7 +1,7 @@
 author: chenx3n
 author_link: https://github.com/malikDaCoda
 category: general-skills
-connection_info: nc scripting.ctf.shellmates.club 1700
+connection_info: nc general.challs.ctf.shellmates.club 1700
 deployment:
   autoban: false
   containerPort: 1337

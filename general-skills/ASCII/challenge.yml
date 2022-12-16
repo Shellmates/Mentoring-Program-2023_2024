@@ -4,13 +4,13 @@ description: ">  I am pretty sure you have heard about ASCII haven't you?\n**Aut
   \ : Im\xE8ne\n"
 difficulty: easy
 files:
-- ./enc
+  - ./enc
 flags:
-- shellmates{4sCiI_tr4nsl4t3s_Ch4Rs_t0_InTs}
+  - shellmates{4sCiI_tr4nsl4t3s_Ch4Rs_t0_InTs}
 name: ASCII
-state: hidden
+state: visible
 tags:
-- ASCII
+  - ASCII
 type: standard
 value: 50
 version: '0.1'

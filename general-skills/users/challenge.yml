@@ -1,6 +1,6 @@
 author: F100w
 category: general-skills
-connection_info: ssh -p 1703 ctf@domain
+connection_info: ssh -p 1703 ctf@general.challs.ctf.shellmates.club
 deployment:
   autoban: false
   containerPort: 22
@@ -21,13 +21,13 @@ deployment:
     cpu: 10m
     memory: 30Mi
   type: tcp
-description: "> Check the available users in the system    \n\n**Password** : ctf\
-  \  \n**Author** : F100w  \n"
+description: "> Check the available users in the system  \n\n**Password** : ctf  \n\
+  **Author** : F100w  \n"
 difficulty: medium
 flags:
 - shellmates{gg_Y0u_F0Und_M3}
 name: Users
-state: hidden
+state: visible
 tags:
 - linux
 type: standard
