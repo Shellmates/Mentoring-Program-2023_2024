@@ -22,18 +22,20 @@ deployment:
     cpu: 10m
     memory: 30Mi
   type: tcp
-description: "> This challenge tests your ability in understanding shell scripts,\
-  \ check `login.sh`\n> and connect to the remote service using the command below\
-  \  \n\n**Author** : chenx3n\n"
+description: |
+  > This challenge tests your ability in understanding shell scripts, check `login.sh`
+  > and connect to the remote service using the command below
+
+  **Author** : chenx3n
 difficulty: easy
 files:
-- login.sh
+  - login.sh
 flags:
-- shellmates{L33E3Et_uSeR}
+  - shellmates{L33E3Et_uSeR}
 name: login
-state: hidden
+state: visible
 tags:
-- bash
+  - bash
 type: standard
 value: 100
 version: '0.1'

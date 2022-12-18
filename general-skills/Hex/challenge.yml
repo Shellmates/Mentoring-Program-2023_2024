@@ -4,13 +4,13 @@ description: "> Binary, octal , decimal ...Any other bases you heard about?\n**A
   \ : Im\xE8ne\n"
 difficulty: easy
 files:
-- ./enc
+  - ./enc
 flags:
-- shellmates{H3x_3nc0dinG_m4Y_b3_fuN_Huh}
+  - shellmates{H3x_3nc0dinG_m4Y_b3_fuN_Huh}
 name: Hex
-state: hidden
+state: visible
 tags:
-- Hex
+  - Hex
 type: standard
 value: 70
 version: '0.1'

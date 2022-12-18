@@ -21,13 +21,15 @@ deployment:
     cpu: 10m
     memory: 20Mi
   type: tcp
-description: "> This is only a sanity check to make sure that you can connect to challenges.\
-  \   \n\n**Author** : souad\n"
+description: '> This is only a sanity check to make sure that you can connect to challenges.
+
+  '
 difficulty: easy
 flags:
 - shellmates{3V3rYth1NG_1S_l00k1Ng_G00D_Y0U_C4N_start}
 name: Sanity Check
-state: hidden
+state: visible
 type: standard
 value: 10
 version: '0.1'
+wave: 1

@@ -22,12 +22,12 @@ deployment:
     memory: 30Mi
   type: tcp
 description: "> Are you able to see all of what is being hidden underneath the hood?\
-  \  \n\n**Password** : ctf\n**Author** : Im\xE8ne\n"
+  \  \n\n**Password** : ctf  \n**Author** : Im\xE8ne\n"
 difficulty: easy
 flags:
 - shellmates{N0!_I_w4S_Pr3tty_SuR3_I_hld_W3ll}
 name: Hide and Ride
-state: hidden
+state: visible
 tags:
 - linux
 type: standard
