@@ -1,0 +1,44 @@
+name: "sudo 1"
+author: "ouxs"
+
+category: linux/priv-esc
+difficulty: easy
+
+description: |
+  > They said you got some LINUX skills!  
+  > Let's test them out  
+
+  **Password** : ctf  
+  **Author** : ouxs
+
+connection_info: ssh -p ${PORT} ctf@priv-esc.challs.ctf.shellmates.club
+value: 50
+type: standard
+
+flags:
+  - shellmates{This_k1D_KnOws_how_We_d0_7h1ng5_h3R3}
+
+state: hidden
+
+version: "0.1"
+deployment:
+  autoban: false
+  containerPort: 22
+  deployed: false
+  dockerImage: sudo-1
+  dockerRepository: gcr.io/mentoring-program-371116
+  egress: deny
+  healthCheck:
+    initialDelaySeconds: 10
+    periodSeconds: 30
+  limits:
+    cpu: 100m
+    memory: 100Mi
+  name: sudo-1
+  nodePort: 
+  replicasNumber: 1
+  requests:
+    cpu: 10m
+    memory: 30Mi
+  type: tcp
+wave: 2

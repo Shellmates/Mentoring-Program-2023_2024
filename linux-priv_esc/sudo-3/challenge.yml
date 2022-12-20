@@ -1,0 +1,46 @@
+name: "sudo 3"
+author: "chenx3n"
+
+category: linux/priv-esc
+difficulty: medium
+
+description: |
+  > My friend installed this new `cowsay` command and he let me play around with it  
+  > But I think it's more than just a cow saying things!  
+
+  **Flag location**: `/flag.txt`  
+  **Password** : ctf  
+  **Author** : chenx3n
+
+connection_info: ssh -p ${PORT} ctf@priv-esc.challs.ctf.shellmates.club  
+
+value: 300
+type: standard
+
+flags:
+  - shellmates{$uDO_G03s_m0OoOoo0OO0O0O0h}
+
+state: hidden
+
+version: "0.1"
+eployment:
+  autoban: false
+  containerPort: 22
+  deployed: false
+  dockerImage: sudo-3
+  dockerRepository: gcr.io/mentoring-program-371116
+  egress: deny
+  healthCheck:
+    initialDelaySeconds: 10
+    periodSeconds: 30
+  limits:
+    cpu: 100m
+    memory: 100Mi
+  name: sudo-3
+  nodePort: 
+  replicasNumber: 1
+  requests:
+    cpu: 10m
+    memory: 30Mi
+  type: tcp
+wave: 2

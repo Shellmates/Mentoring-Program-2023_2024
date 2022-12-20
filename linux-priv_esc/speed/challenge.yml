@@ -1,0 +1,27 @@
+name: "speed"
+author: "ouxs"
+author_link: "https://github.com/ouxs-19"
+
+category: linux/priv-esc
+difficulty: hard
+
+description: |
+  > Speed is the way to go.  
+
+  **Password** : ctf  
+  **Author** : ouxs
+
+connection_info: ssh -p ${PORT} ctf@linux.challs.ctf.shellmates.club
+
+value: 500
+type: standard
+
+tags:
+  - race condition
+
+flags:
+  - shellmates{83C4r3FU11WH3NY0UD341W17H71M317C4N76377r1CKY}
+
+state: hidden
+
+version: "0.1"
