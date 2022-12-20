@@ -9,6 +9,11 @@
     "general-skills/Hide-and-Ride",
     "general-skills/ASCII",
     "general-skills/users",
-    "sanity-check/sanity-check"
+    "sanity-check/sanity-check",
+    "linux_priv-esc/sudo-1",
+    "linux_priv-esc/sudo-2",
+    "linux_priv-esc/sudo-3",
+    "linux_priv-esc/speed",
+    "linux_priv-esc/path",
+    "linux_priv-esc/just-binbash"
 ]
-

@@ -8,8 +8,9 @@ RUN useradd -m -s /bin/bash ctf && \
     useradd --no-create-home ctf-cracked && \
     echo 'ctf:ctf' | chpasswd 
 
-COPY --chown=root:ctf-cracked --chmod=440 challenge/flag.txt /flag.txt
+COPY challenge/flag.txt /flag.txt
 
+RUN chown root:ctf-cracked /flag.txt && chmod 440 /flag.txt
 RUN ln -s /dev/null /home/ctf/.bash_history 
 
 COPY challenge/perms /etc/sudoers.d/

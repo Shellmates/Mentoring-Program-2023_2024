@@ -1,0 +1,34 @@
+author: souad
+category: linux/priv-esc
+connection_info: ssh -p 1101 ctf@priv-esc.challs.ctf.shellmates.club
+deployment:
+  autoban: false
+  containerPort: 22
+  deployed: true
+  dockerImage: sudo-2
+  dockerRepository: gcr.io/mentoring-program-371116
+  egress: deny
+  healthCheck:
+    initialDelaySeconds: 10
+    periodSeconds: 30
+  limits:
+    cpu: 100m
+    memory: 100Mi
+  name: sudo-2
+  nodePort: 30101
+  replicasNumber: 1
+  requests:
+    cpu: 10m
+    memory: 30Mi
+  type: tcp
+description: "> Try now to find a location where you can copy! but also to read it\
+  \ ...  \n\n**Password** : ctf  \n**Author** : souad\n"
+difficulty: ezmed
+flags:
+- shellmates{Y0u_do1ng_Job_W1Th_suDO_L3TS_$3e_For_TH3_N3XT_On3}
+name: sudo 2
+state: visible
+type: standard
+value: 150
+version: '0.1'
+wave: 2

@@ -1,0 +1,36 @@
+author: ouxs
+author_link: https://github.com/ouxs-19
+category: linux/priv-esc
+connection_info: ssh -p 1105 ctf@linux.challs.ctf.shellmates.club
+deployment:
+  autoban: false
+  containerPort: 22
+  deployed: true
+  dockerImage: speed
+  dockerRepository: gcr.io/mentoring-program-371116
+  egress: deny
+  healthCheck:
+    initialDelaySeconds: 10
+    periodSeconds: 30
+  limits:
+    cpu: 100m
+    memory: 100Mi
+  name: speed
+  nodePort: 30105
+  replicasNumber: 1
+  requests:
+    cpu: 10m
+    memory: 30Mi
+  type: tcp
+description: "> Speed is the way to go.  \n\n**Password** : ctf \n**Author** : ouxs\n"
+difficulty: hard
+flags:
+- shellmates{83C4r3FU11WH3NY0UD341W17H71M317C4N76377r1CKY}
+name: speed
+state: visible
+tags:
+- race condition
+type: standard
+value: 500
+version: '0.1'
+wave: 2

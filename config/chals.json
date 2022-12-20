@@ -48,5 +48,65 @@
         "path": "sanity-check/sanity-check",
         "nodeport": 30800,
         "port": 1800
+    },
+    "sudo-1": {
+        "name": "sudo-1",
+        "subdomain": "sudo-1",
+        "type": "tcp",
+        "category": "linux-priv-esc",
+        "autoban": false,
+        "path": "linux_priv-esc/sudo-1",
+        "nodeport": 30100,
+        "port": 1100
+    },
+    "sudo-2": {
+        "name": "sudo-2",
+        "subdomain": "sudo-2",
+        "type": "tcp",
+        "category": "linux-priv-esc",
+        "autoban": false,
+        "path": "linux_priv-esc/sudo-2",
+        "nodeport": 30101,
+        "port": 1101
+    },
+    "sudo-3": {
+        "name": "sudo-3",
+        "subdomain": "sudo-3",
+        "type": "tcp",
+        "category": "linux-priv-esc",
+        "autoban": false,
+        "path": "linux_priv-esc/sudo-3",
+        "nodeport": 30102,
+        "port": 1102
+    },
+    "path": {
+        "name": "path",
+        "subdomain": "path",
+        "type": "tcp",
+        "category": "linux-priv-esc",
+        "autoban": false,
+        "path": "linux_priv-esc/path",
+        "nodeport": 30103,
+        "port": 1103
+    },
+    "just-bin-bash": {
+        "name": "just-bin-bash",
+        "subdomain": "just-bin-bash",
+        "type": "tcp",
+        "category": "linux-priv-esc",
+        "autoban": false,
+        "path": "linux_priv-esc/just-binbash",
+        "nodeport": 30104,
+        "port": 1104
+    },
+    "speed": {
+        "name": "speed",
+        "subdomain": "speed",
+        "type": "tcp",
+        "category": "linux-priv-esc",
+        "autoban": false,
+        "path": "linux_priv-esc/speed",
+        "nodeport": 30105,
+        "port": 1105
     }
 }

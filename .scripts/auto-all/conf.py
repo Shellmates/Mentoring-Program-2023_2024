@@ -70,6 +70,7 @@ CHAL_DIRS = {
     "web",
     "general-skills",
     "sanity-check",
+    "linux_priv-esc",
 }
 AUTOBAN_DEFAULT = False
 FW_PRIORITY = 1000

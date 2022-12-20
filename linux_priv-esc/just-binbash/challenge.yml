@@ -1,0 +1,34 @@
+author: chenx3n
+category: linux/priv-esc
+connection_info: ssh -p 1104 ctf@linux.challs.ctf.shellmates.club
+deployment:
+  autoban: false
+  containerPort: 22
+  deployed: true
+  dockerImage: just-bin-bash
+  dockerRepository: gcr.io/mentoring-program-371116
+  egress: deny
+  healthCheck:
+    initialDelaySeconds: 10
+    periodSeconds: 30
+  limits:
+    cpu: 100m
+    memory: 100Mi
+  name: just-bin-bash
+  nodePort: 30104
+  replicasNumber: 1
+  requests:
+    cpu: 10m
+    memory: 30Mi
+  type: tcp
+description: "> Yaaay I got a shell!  \n> Wait there's no ls, no cat, just /bin/bash\
+  \ !!  \n\n**Password** : ctf  \n**Author** : chenx3n\n"
+difficulty: hard
+flags:
+- shellmates{sH3ll_built1ns_FTW}
+name: just /bin/bash
+state: visible
+type: standard
+value: 500
+version: '0.1'
+wave: 2

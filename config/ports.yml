@@ -1,7 +1,7 @@
 crypto: 1000
 general-skills: 1704
 jail: 1300
-linux: 1100
+linux-priv-esc: 1106
 misc: 1200
 pwn: 1400
 reverse: 1500

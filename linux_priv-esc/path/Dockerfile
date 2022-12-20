@@ -13,9 +13,12 @@ WORKDIR /home/ctf
 
 RUN chown -R root:root . && \
     chmod o+rx .
-COPY --chown=root:ctf-cracked --chmod=440 challenge/flag.txt .
-COPY --chown=root:ctf-cracked --chmod=555 challenge/my_ls .
+COPY challenge/flag.txt .
+COPY challenge/my_ls .
 COPY challenge/perms /etc/sudoers
+
+RUN chown root:ctf-cracked flag.txt && chmod 440 flag.txt
+RUN chown root:ctf-cracked flag.txt && chmod 555 my_ls
 
 EXPOSE 22
 

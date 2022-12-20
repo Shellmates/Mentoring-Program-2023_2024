@@ -1,0 +1,33 @@
+author: ouxs
+category: linux/priv-esc
+connection_info: ssh -p 1103 ctf@priv-esc.challs.ctf.shellmates.club
+deployment:
+  autoban: false
+  containerPort: 22
+  deployed: true
+  dockerImage: path
+  dockerRepository: gcr.io/mentoring-program-371116
+  egress: deny
+  healthCheck:
+    initialDelaySeconds: 10
+    periodSeconds: 30
+  limits:
+    cpu: 100m
+    memory: 100Mi
+  name: path
+  nodePort: 30103
+  replicasNumber: 1
+  requests:
+    cpu: 10m
+    memory: 30Mi
+  type: tcp
+description: "> Do you trust the paths?  \n\n**Password** : ctf \n**Author** : ouxs\n"
+difficulty: medium
+flags:
+- shellmates{R3l47iV3_P4TH_4R3_Dan9eRou$}
+name: PATH
+state: visible
+type: standard
+value: 400
+version: '0.1'
+wave: 2

@@ -9,10 +9,12 @@ RUN useradd -m -s /bin/bash ctf && \
 
 WORKDIR /home/ctf
 
-RUN chown -R root:root . && chmod 555 . 
 
-COPY --chmod=400 --chown=ctf-cracked challenge/flag.txt .
+COPY challenge/flag.txt .
 COPY challenge/perms /etc/sudoers.d/
+
+RUN chown -R root:root . && chmod 555 . 
+RUN chown ctf-cracked:ctf-cracked flag.txt && chmod 400 flag.txt
 
 RUN ln -s /dev/null .bash_history
 RUN chmod -r /tmp /var/tmp
