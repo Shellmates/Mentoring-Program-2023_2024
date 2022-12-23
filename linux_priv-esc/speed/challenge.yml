@@ -1,6 +1,6 @@
 author: ouxs
 author_link: https://github.com/ouxs-19
-category: linux/priv-esc
+category: linux-priv-esc
 connection_info: ssh -p 1105 ctf@linux.challs.ctf.shellmates.club
 deployment:
   autoban: false

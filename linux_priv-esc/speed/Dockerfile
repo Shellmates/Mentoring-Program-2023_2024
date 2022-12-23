@@ -1,7 +1,7 @@
 FROM python:3.10
 
 RUN apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends openssh-server sudo systemd rsyslog
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends openssh-server sudo systemd rsyslog cron psmisc
 
 RUN useradd -M -s /bin/bash ctf-cracked
 
@@ -15,25 +15,17 @@ RUN mkdir /challenge
 
 WORKDIR /challenge
 
-COPY challenge/flag.txt .
-
-COPY challenge/read.py .
-
-COPY challenge/sudoers /etc/sudoers
+COPY challenge/ .
 
 RUN chown root:ctf-cracked flag.txt read.py
-
 RUN chmod 440 flag.txt
-
 RUN chmod 554 read.py
 
+COPY challenge/sudoers /etc/sudoers
 COPY challenge/sshd_config /etc/ssh/sshd_config
-
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends cron psmisc
-
 COPY challenge/crontab /etc/crontab
 
-RUN chmod -r /tmp 
+RUN find -perm /o=w -exec chmod '-r' '{}' \;
 
 ENTRYPOINT touch /etc/crontab /etc/cron.*/* \
 	    && service cron start \

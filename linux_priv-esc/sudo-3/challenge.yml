@@ -29,6 +29,8 @@ flags:
 - shellmates{$uDO_G03s_m0OoOoo0OO0O0O0h}
 name: sudo 3
 state: visible
+tags:
+- gtfobins
 type: standard
 value: 300
 version: '0.1'
