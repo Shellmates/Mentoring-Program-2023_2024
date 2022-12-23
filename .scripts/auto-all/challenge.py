@@ -129,7 +129,7 @@ def load_chal(chalpath, warn=True):
 def update_chal_data(chal_data, chal: Challenge):
     if chal_data["type"] == DYNAMIC_CHAL_TYPE:
         chal_data["extra"]["decay"] = DECAY
-    if "deployment" in chal_data and os.path.isfile(dockerfile_path(chal.path)):
+    if "deployment" in chal_data:
         if chal is not None:
             if chal_data.get("connection_info") and chal.port is not None and PORT_PLACE_HOLDER in chal_data["connection_info"]:
                 chal_data["connection_info"] = chal_data["connection_info"].replace(PORT_PLACE_HOLDER, f"{chal.port}")
@@ -137,6 +137,7 @@ def update_chal_data(chal_data, chal: Challenge):
             if chal.nodeport is not None:
                 chal_data["deployment"]["nodePort"] = chal.nodeport
             chal_data["deployment"]["deployed"] = chal.deployed
+    # TO-DO: fix this type of challenge
     elif chal_data["type"] == DOCKER_CHAL_TYPE:
         if chal_data.get("docker_image") and PROJECT_ID_PLACE_HOLDER in chal_data['docker_image']:
             chal_data['docker_image'] = chal_data['docker_image'].replace(PROJECT_ID_PLACE_HOLDER, PROJECT_ID)

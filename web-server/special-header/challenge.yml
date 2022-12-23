@@ -1,0 +1,43 @@
+name: special-header
+author: r1v3nch
+author_link: https://github.com/Walid-Berrouk
+
+category: web
+difficulty: easy
+
+description: |
+  > Did you know that Web apps work with the HTTP protocol... Request, Response and all that stuff ?  
+  
+  **Author** : r1v3nch
+
+connection_info: http://special-header.web-server.challs.ctf.shellmates.club/
+
+flags:
+  - shellmates{1t_$t1ll_n33ds_t0_b3_s3nt_1n_th3_b0dy_th0}
+
+type: standard
+value: 50
+
+state: hidden
+version: '0.1'
+deployment:
+  autoban: false
+  containerPort: 5000 
+  deployed: false
+  dockerImage: special-header
+  dockerRepository: gcr.io/mentoring-program-371116
+  egress: deny
+  healthCheck:
+    initialDelaySeconds: 10
+    periodSeconds: 30
+  limits:
+    cpu: 100m
+    memory: 100Mi
+  name: special-header
+  nodePort: 
+  replicasNumber: 1
+  requests:
+    cpu: 10m
+    memory: 30Mi
+  type: http
+wave: 3

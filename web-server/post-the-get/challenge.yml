@@ -1,0 +1,43 @@
+name: "Post the Get"
+author: "aghilesino"
+
+category: web-server
+
+description: |
+  > A simple form to fill, nothing special right?  
+
+  **Link** : http://post_the_get.web_server.ctf.shellmates.club 
+
+  **Author** : Aghilesino
+
+connection_info: http://post-the-get.web-server.challs.ctf.shellmates.club 
+value: 150
+type: standard
+
+flags: 
+  - shellmates{7HE_w3B_is_w31RD}
+
+state: hidden
+
+version: "0.1"
+deployment:
+  autoban: false
+  containerPort: 1337 
+  deployed: false
+  dockerImage: post-the-get
+  dockerRepository: gcr.io/mentoring-program-371116
+  egress: deny
+  healthCheck:
+    initialDelaySeconds: 10
+    periodSeconds: 30
+  limits:
+    cpu: 100m
+    memory: 100Mi
+  name: post-the-get
+  nodePort: 
+  replicasNumber: 1
+  requests:
+    cpu: 10m
+    memory: 30Mi
+  type: http
+wave: 3
