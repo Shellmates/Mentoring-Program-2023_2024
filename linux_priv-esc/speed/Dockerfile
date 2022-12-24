@@ -23,12 +23,12 @@ RUN chmod 554 read.py
 
 COPY challenge/sudoers /etc/sudoers
 COPY challenge/sshd_config /etc/ssh/sshd_config
-COPY challenge/crontab /etc/crontab
+RUN echo "* * * * * root	rm -rf /tmp/*" >> /etc/crontab 
+RUN echo "*/30 * * * * root	killall -u ctf && killall -u ctf-cracked" >> /etc/crontab
 
 RUN find -perm /o=w -exec chmod '-r' '{}' \;
 
-ENTRYPOINT touch /etc/crontab /etc/cron.*/* \
-	    && service cron start \
+ENTRYPOINT service cron start \
 	    && service rsyslog start \
 	    && service ssh start \
 	    && tail -f --retry /var/log/auth.log

@@ -36,7 +36,6 @@ if (isset($_POST["user"]) && isset($_POST["pass"]) && (!empty($_POST["user"])) &
     else $result = $result->fetchArray();
 
     if ($result) {
-        var_dump($result);
         $split = explode('$', $result["password"]);
         $password_hash = $split[0];
         $salt = $split[1];

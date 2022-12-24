@@ -1,28 +1,10 @@
-name: "leak"
-author: "ouxs"
-
+author: ouxs
 category: web-server
-difficulty: easy
-
-description: |
-  > the flag is in /flag, can you get it?  
-
-  **Author** : ouxs
-
-connection_info: http://leak.web-server.challs.ctf.shellmates.club 
-value: 100
-type: standard
-
-flags: 
-  - shellmates{LFIIII_FTW_3287964286}
-
-state: hidden
-
-version: "0.1"
+connection_info: http://leak.web-server.challs.ctf.shellmates.club
 deployment:
   autoban: false
-  containerPort: 1337 
-  deployed: false
+  containerPort: 1337
+  deployed: true
   dockerImage: leak
   dockerRepository: gcr.io/mentoring-program-371116
   egress: deny
@@ -33,10 +15,22 @@ deployment:
     cpu: 100m
     memory: 100Mi
   name: leak
-  nodePort: 
+  nodePort: 30601
   replicasNumber: 1
   requests:
     cpu: 10m
     memory: 30Mi
   type: http
+description: |
+  > the flag is in /flag, can you get it?
+
+  **Author** : ouxs
+difficulty: easy
+flags:
+  - shellmates{LFIIII_FTW_3287964286}
+name: leak
+state: visible
+type: standard
+value: 100
+version: '0.1'
 wave: 3

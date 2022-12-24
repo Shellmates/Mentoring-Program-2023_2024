@@ -105,8 +105,88 @@
         "type": "tcp",
         "category": "linux-priv-esc",
         "autoban": false,
-        "path": "linux_priv-esc/speed",
+        "path": "linux_priv-esc/speed/",
         "nodeport": 30105,
         "port": 1105
+    },
+    "secret-agent": {
+        "name": "secret-agent",
+        "subdomain": "secret-agent",
+        "type": "http",
+        "category": "web-server",
+        "autoban": false,
+        "path": "web-server/secret-agent",
+        "nodeport": 30600,
+        "port": 1600
+    },
+    "leak": {
+        "name": "leak",
+        "subdomain": "leak",
+        "type": "http",
+        "category": "web-server",
+        "autoban": false,
+        "path": "web-server/leak",
+        "nodeport": 30601,
+        "port": 1601
+    },
+    "post-the-get": {
+        "name": "post-the-get",
+        "subdomain": "post-the-get",
+        "type": "http",
+        "category": "web-server",
+        "autoban": false,
+        "path": "web-server/post-the-get",
+        "nodeport": 30602,
+        "port": 1602
+    },
+    "sqli-1": {
+        "name": "sqli-1",
+        "subdomain": "sqli-1",
+        "type": "http",
+        "category": "web-server",
+        "autoban": false,
+        "path": "web-server/sqli-1",
+        "nodeport": 30603,
+        "port": 1603
+    },
+    "special-header": {
+        "name": "special-header",
+        "subdomain": "special-header",
+        "type": "http",
+        "category": "web-server",
+        "autoban": false,
+        "path": "web-server/special-header",
+        "nodeport": 30604,
+        "port": 1604
+    },
+    "render": {
+        "name": "render",
+        "subdomain": "render",
+        "type": "http",
+        "category": "web-server",
+        "autoban": false,
+        "path": "web-server/render",
+        "nodeport": 30605,
+        "port": 1605
+    },
+    "lsaas-1": {
+        "name": "lsaas-1",
+        "subdomain": "lsaas-1",
+        "type": "http",
+        "category": "web-server",
+        "autoban": false,
+        "path": "web-server/lsaas-1",
+        "nodeport": 30606,
+        "port": 1606
+    },
+    "lsaas-2": {
+        "name": "lsaas-2",
+        "subdomain": "lsaas-2",
+        "type": "http",
+        "category": "web-server",
+        "autoban": false,
+        "path": "web-server/lsaas-2",
+        "nodeport": 30607,
+        "port": 1607
     }
 }

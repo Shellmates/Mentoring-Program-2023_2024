@@ -1,32 +1,11 @@
-name: secret agent
 author: chenx3n
 author_link: https://github.com/malikDaCoda
-
-category: web
-difficulty: ezmed
-
-description: |
-  > Only super secret agents allowed  
-
-  **Author** : chenx3n
-
+category: web-server
 connection_info: http://secret-agent.web-server.challs.ctf.shellmates.club
-
-files:
-  - ./nginx.conf
-
-flags:
-  - shellmates{$uuUuUUP3r_S3CR37_aG3Nt}
-
-type: standard
-value: 100
-
-state: hidden
-version: '0.1'
 deployment:
   autoban: false
-  containerPort: 1337 
-  deployed: false
+  containerPort: 1337
+  deployed: true
   dockerImage: secret-agent
   dockerRepository: gcr.io/mentoring-program-371116
   egress: deny
@@ -37,10 +16,24 @@ deployment:
     cpu: 100m
     memory: 100Mi
   name: secret-agent
-  nodePort: 
+  nodePort: 30600
   replicasNumber: 1
   requests:
     cpu: 10m
     memory: 30Mi
   type: http
+description: |
+  > Only super secret agents allowed
+
+  **Author** : chenx3n
+difficulty: ezmed
+files:
+  - ./nginx.conf
+flags:
+  - shellmates{$uuUuUUP3r_S3CR37_aG3Nt}
+name: secret agent
+state: visible
+type: standard
+value: 150
+version: '0.1'
 wave: 3

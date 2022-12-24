@@ -1,1 +1,9 @@
 #domainname     backendname
+secret-agent.    be_secret-agent
+leak.    be_leak
+post-the-get.    be_post-the-get
+sqli-1.    be_sqli-1
+special-header.    be_special-header
+render.    be_render
+lsaas-1.    be_lsaas-1
+lsaas-2.    be_lsaas-2

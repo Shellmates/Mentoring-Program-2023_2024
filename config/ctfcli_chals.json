@@ -15,5 +15,14 @@
     "linux_priv-esc/sudo-3",
     "linux_priv-esc/speed",
     "linux_priv-esc/path",
-    "linux_priv-esc/just-binbash"
+    "linux_priv-esc/just-binbash",
+    "linux_priv-esc/speed/",
+    "web-server/secret-agent",
+    "web-server/leak",
+    "web-server/post-the-get",
+    "web-server/sqli-1",
+    "web-server/special-header",
+    "web-server/render",
+    "web-server/lsaas-1",
+    "web-server/lsaas-2"
 ]

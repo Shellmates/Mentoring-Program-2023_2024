@@ -1,30 +1,11 @@
-name: "lsAAS 2"
-author: "ouxs"
-author_link: "https://github.com/ouxs-19"
-
+author: ouxs
+author_link: https://github.com/ouxs-19
 category: web-server
-difficulty: medium
-
-description: |
-  > Can you LS the flag? This time you can't, I'm sure.  
-
-  **Author** : ouxs
-
 connection_info: http://lsaas-2.web-server.challs.ctf.shellmates.club
-
-value: 350
-type: standard
-
-flags:
-  - shellmates{Y0u_M4d3_UR_W4Y_THR0U9Gh_my_L5_AG4IN_AGHHH}
-
-state: hidden
-
-version: "0.1"
 deployment:
   autoban: false
-  containerPort: 8000 
-  deployed: false
+  containerPort: 8000
+  deployed: true
   dockerImage: lsaas-2
   dockerRepository: gcr.io/mentoring-program-371116
   egress: deny
@@ -35,10 +16,24 @@ deployment:
     cpu: 100m
     memory: 100Mi
   name: lsaas-2
-  nodePort: 
+  nodePort: 30607
   replicasNumber: 1
   requests:
     cpu: 10m
     memory: 30Mi
   type: http
+description: '> Can you LS the flag? This time you can''t, I''m sure.
+
+
+  **Author** : ouxs
+
+  '
+difficulty: medium
+flags:
+- shellmates{Y0u_M4d3_UR_W4Y_THR0U9Gh_my_L5_AG4IN_AGHHH}
+name: lsAAS 2
+state: visible
+type: standard
+value: 400
+version: '0.1'
 wave: 3

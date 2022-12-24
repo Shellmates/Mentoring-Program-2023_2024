@@ -1,27 +1,10 @@
-name: "render"
-author: "ouxs"
-
+author: ouxs
 category: web-server
-
-description: |
-  > Could do you render the flag for me?  
-
-  **Author** : ouxs, hasna
-
-connection_info: http://render.web-server.challs.ctf.shellmates.club 
-value: 500
-type: standard
-
-flags: 
-  - shellmates{SSTI_X_J1NJA_893274}
-
-state: hidden
-
-version: "0.1"
+connection_info: http://render.web-server.challs.ctf.shellmates.club
 deployment:
   autoban: false
-  containerPort: 1337 
-  deployed: false
+  containerPort: 1337
+  deployed: true
   dockerImage: render
   dockerRepository: gcr.io/mentoring-program-371116
   egress: deny
@@ -32,10 +15,21 @@ deployment:
     cpu: 100m
     memory: 100Mi
   name: render
-  nodePort: 
+  nodePort: 30605
   replicasNumber: 1
   requests:
     cpu: 10m
     memory: 30Mi
   type: http
+description: |
+  > Could do you render the flag for me?
+
+  **Author** : ouxs, hasna
+flags:
+  - shellmates{SSTI_X_J1NJA_893274}
+name: render
+state: visible
+type: standard
+value: 500
+version: '0.1'
 wave: 3

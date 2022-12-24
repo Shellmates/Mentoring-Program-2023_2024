@@ -107,10 +107,7 @@ def load_chal(chalpath, warn=True):
         chal_data = yaml.safe_load(f)
         name = chal_data['name']
         log(f"[*] Loading challenge '{name}'")
-        if not chal_data.get("deployment"):
-            warn and log(f"[!] Skipping challenge '{name}' as it doesn't contain a 'deployment' section")
-            chal = None
-        elif os.path.isfile(dockerfile_path(chalpath)):
+        if chal_data.get("deployment"):
             chal = Challenge(
                 chal_data["deployment"]["name"],
                 chal_data["deployment"]["type"],
@@ -122,7 +119,7 @@ def load_chal(chalpath, warn=True):
                 chal_data.get("wave", None),
             )
         else:
-            warn and log(f"[!] Skipping challenge '{name}' as its type seems to be static (no deplyment section and no '{DOCKERFILE_NAME}')")
+            warn and log(f"[!] Skipping challenge '{name}' as it doesn't contain a 'deployment' section")
             chal = None
     return chal
 

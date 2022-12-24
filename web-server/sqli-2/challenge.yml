@@ -40,4 +40,3 @@ deployment:
     cpu: 10m
     memory: 30Mi
   type: http
-wave: 3

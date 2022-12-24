@@ -67,7 +67,8 @@ CHAL_DIRS = {
     "osint",
     "pwn",
     "reverse",
-    "web",
+    "web-server",
+    "web-client",
     "general-skills",
     "sanity-check",
     "linux_priv-esc",
@@ -97,7 +98,7 @@ DOCKERFILE_DIRS = {
 DOCKERFILE_NAME = "Dockerfile"
 
 # ctfcli
-CTFCLI_CMD = "ctf"
+CTFCLI_CMD = "/home/souad/.local/bin/ctf"
 CTFCLI_CHAL_TRACKER_PATH = "config/ctfcli_chals.json"
 CHSTATE_VISIBLE = "visible"
 CHSTATE_HIDDEN = "hidden"
