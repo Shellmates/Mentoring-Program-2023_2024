@@ -1,7 +1,7 @@
 FROM ubuntu:22.04
 
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install openssh-server sudo cowsay && \
+    DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install openssh-server sudo cron cowsay && \
     rm -rf /var/lib/apt/lists/*
 
 RUN useradd -m -s /bin/bash ctf && \
@@ -10,10 +10,16 @@ RUN useradd -m -s /bin/bash ctf && \
 
 COPY challenge/flag.txt /flag.txt
 
+RUN chown -R root:root /home/ctf/ && chmod 555 /home/ctf/
 RUN chown root:ctf-cracked /flag.txt && chmod 440 /flag.txt
-RUN ln -s /dev/null /home/ctf/.bash_history 
 
 COPY challenge/perms /etc/sudoers.d/
 
-RUN chmod -r /tmp /var/tmp
-ENTRYPOINT service ssh start && tail -f /dev/null
+RUN ln -s /dev/null /home/ctf/.bash_history 
+RUN echo "*/15 * * * * root	rm -rf /tmp/*" >> /etc/crontab 
+RUN chmod -r /tmp /var/tmp /run/lock
+
+ENTRYPOINT service cron start \
+	    && service ssh start \
+	    && tail -f /dev/null
+

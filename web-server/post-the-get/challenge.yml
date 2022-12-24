@@ -24,8 +24,6 @@ deployment:
 description: |
   > A simple form to fill, nothing special right?
 
-  **Link** : http://post_the_get.web_server.ctf.shellmates.club
-
   **Author** : Aghilesino
 flags:
   - shellmates{7HE_w3B_is_w31RD}

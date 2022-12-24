@@ -11,7 +11,7 @@ description: |
   **Author**: hfz1337
 
 connection_info: http://sqli-2.web-server.challs.ctf.shellmates.club/
-value: 00
+value: 500
 type: standard
 
 flags:
