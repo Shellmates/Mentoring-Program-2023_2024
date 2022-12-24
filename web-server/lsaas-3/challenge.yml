@@ -1,0 +1,38 @@
+author: souad
+category: web-server
+connection_info: http://lsaas-3.web-server.challs.ctf.shellmates.club
+deployment:
+  autoban: false
+  containerPort: 8000
+  deployed: true
+  dockerImage: lsaas-3
+  dockerRepository: gcr.io/mentoring-program-371116
+  egress: deny
+  healthCheck:
+    initialDelaySeconds: 10
+    periodSeconds: 30
+  limits:
+    cpu: 100m
+    memory: 100Mi
+  name: lsaas-3
+  nodePort: 
+  replicasNumber: 1
+  requests:
+    cpu: 10m
+    memory: 30Mi
+  type: http
+description: |
+  >  Let's see if you can make through this injection too.
+
+
+  **Author** : ouxs
+
+difficulty: hard
+flags:
+- shellmates{I_sH0uLD_hAvE_DOcUM3ntED_WelL_AB0UT_PYTH0n_R3gex_BefOR3_Th4t}
+name: lsAAS 3
+state: hidden
+type: standard
+value: 500
+version: '0.1'
+wave: 3
