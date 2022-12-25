@@ -1,22 +1,17 @@
 import string
-from secret import FLAG
+from secret import FLAG, KEY
 
 flag = FLAG
-key = "vigenere"
+key = KEY
 
-# I decided to use this alphabet for the vigenere cipher
-alphabet = string.ascii_letters + string.digits + '}{_'
-n = len(alphabet)
+possible_chars = string.ascii_letters + string.digits
+n = len(possible_chars)
 enc = ''
 
-# Here is the vigenere cipher
-for ind in range(len(flag)) :
-    c = flag[ind]
-    k = key[ind % len(key)]
-    if c in alphabet :
-        i = alphabet.index(c)
-        j = alphabet.index(k)
-        enc += alphabet[(i + j) % n]
+for c in flag :
+    if c in possible_chars :
+        i =  possible_chars.index(c)
+        enc += possible_chars[(i + key) % n]
     else :
         enc += c
 

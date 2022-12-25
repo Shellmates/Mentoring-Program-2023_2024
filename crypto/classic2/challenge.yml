@@ -1,26 +1,23 @@
-name: "classic 2"
-author: "souad"
-
+author: souad
 category: crypto
+description: '> We say that classic ciphers aren''t secure anymore, can you prove
+  me that ?
+
+
+  **Author** : souad
+
+  '
 difficulty: easy
-
-description: |
-  > This time for Vigenere.
-
-  **Author** : souad 
-
-value: 100
-type: standard
-
-flags:
-  - shellmates{1_HOP3_You_didN7_Us3_4N_0nLiN3_tO0l}
-
 files:
-  - ./enc
-  - ./challenge.py
-
+- ./enc
+- ./challenge.py
+flags:
+- shellmates{bRutEF0rc3_MaY_com3_h4Ndy}
+name: classic 2
 state: hidden
-
-version: "0.1"
-
+tags:
+- rot
+type: standard
+value: 100
+version: '0.1'
 wave: 4

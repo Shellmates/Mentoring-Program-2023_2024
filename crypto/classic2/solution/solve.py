@@ -1,20 +1,17 @@
 import string
 
-enc = "NpkpyqrxzAe5mL5Tlh4sHdumyVad7whdmVf4APzRlhzSapo"
-key = "vigenere"
+enc = "JyvCCDrKvJ{s8LKVWhItk_3rf_tFDk_yl4uP}"
+possible_chars = string.ascii_letters + string.digits
+n = len(possible_chars)
 
-alphabet = string.ascii_letters + string.digits + '}{_'
-n = len(alphabet)
-flag = ''
-
-for ind in range(len(enc)) :
-    c = enc[ind]
-    k = key[ind % len(key)]
-    if c in alphabet :
-        i = alphabet.index(c)
-        j = alphabet.index(k)
-        flag += alphabet[(i - j) % n]
-    else :
-        flag += c
-
-print(flag)
+for key in range(len(possible_chars)):
+    flag = ''
+    for c in enc :
+        if c in possible_chars :
+            i =  possible_chars.index(c)
+            flag += possible_chars[(i - key) % n]
+        else :
+            flag += c
+    if 'shellmates' in flag :
+        print(flag)
+        exit()

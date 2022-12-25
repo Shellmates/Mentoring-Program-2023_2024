@@ -1,25 +1,22 @@
-name: "XOR1"
-author: "souad"
-
+author: souad
 category: crypto
-difficulty: easy
+description: '> I have an encrypted message right here and I was told it was encrypted
+  using this key : simpleXor.
 
-description: |
-  > I have an encrypted message right here and I was told it was encrypted using this key : simpleXor.
   > See if you can recover it for me.
+
 
   **Author** : souad
 
-value: 200
-type: standard
-
-flags:
-  - shellmates{x0r_Is_1MpOr7ant_IN_Cryp7O_WOr1D}
-
+  '
+difficulty: easy
 files:
-  - ./enc
-
+- ./enc
+flags:
+- shellmates{x0r_Is_1MpOr7ant_IN_Cryp7O_WOr1D}
+name: XOR1
 state: hidden
+type: standard
+value: 200
+version: '0.1'
 wave: 4
-
-version: "0.1"

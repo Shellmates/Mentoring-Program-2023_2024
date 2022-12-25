@@ -1,24 +1,15 @@
-name: "X0R2"
-author: "haithem_lamri"
-
+author: haithem_lamri
 category: crypto
+description: "> I've xored my flag using a random key, could you find my secret flag\
+  \ ?  \n\n**Author** : haithem_lamri\n"
 difficulty: hard
-
-description: |
-  > I've xored my flag using a random key, could you find my secret flag ?  
-  
-  **Author** : haithem_lamri
-
-value: 500
-type: standard
-
-flags:
-  - shellmates{Kn0wn_Pl4in_73xT_4774ck}
-
 files:
-  - ./enc.txt
-
+- ./enc.txt
+flags:
+- shellmates{Kn0wn_Pl4in_73xT_4774ck}
+name: X0R2
 state: hidden
+type: standard
+value: 400
+version: '0.1'
 wave: 4
-
-version: "0.1"

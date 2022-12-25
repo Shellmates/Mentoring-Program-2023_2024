@@ -1,29 +1,17 @@
-name: "classic 1"
-author: "souad"
-
+author: souad
 category: crypto
+description: "> Do you know caesar ?  \n\n**Author** : souad \n"
 difficulty: easy
-
-description: |
-  > Do you know caesar ?  
-
-  **Author** : souad 
-
-value: 100
-type: standard
-
-flags:
-  - shellmates{caesar_just_rotations}
-
-tags:
-  - caesar
-  - rot13
-
 files:
-  - ./enc
-
+- ./enc
+flags:
+- shellmates{caesar_just_rotations}
+name: classic 1
 state: hidden
-
-version: "0.1"
-
+tags:
+- caesar
+- rot13
+type: standard
+value: 50
+version: '0.1'
 wave: 4
