@@ -1,29 +1,10 @@
-name: "SQLi 2"
-author: "hfz1337"
-
+author: hfz1337
 category: web-server
-
-description: |
-  > SQL injections are still a problem yes, even in 2021.  
-  > Bypass the login mechanism and get access to the admin area.  
-
-
-  **Author**: hfz1337
-
 connection_info: http://sqli-2.web-server.challs.ctf.shellmates.club/
-value: 500
-type: standard
-
-flags:
-  - shellmates{c0ngr4tul4t10ns_U_d1d_1t!!_fe4cd84591ea}
-
-state: hidden
-
-version: "0.1"
 deployment:
   autoban: false
-  containerPort: 80 
-  deployed: false
+  containerPort: 80
+  deployed: true
   dockerImage: sqli-2
   dockerRepository: gcr.io/mentoring-program-371116
   egress: deny
@@ -34,9 +15,25 @@ deployment:
     cpu: 100m
     memory: 100Mi
   name: sqli-2
-  nodePort: 
+  nodePort: 30608
   replicasNumber: 1
   requests:
     cpu: 10m
     memory: 30Mi
   type: http
+description: '> SQL injections are still a problem yes, even in 2021.
+
+  > Bypass the login mechanism and get access to the admin area.
+
+
+
+  **Author**: hfz1337
+
+  '
+flags:
+- shellmates{c0ngr4tul4t10ns_U_d1d_1t!!_fe4cd84591ea}
+name: SQLi 2
+state: visible
+type: standard
+value: 700
+version: '0.1'

@@ -21,12 +21,14 @@ deployment:
     cpu: 10m
     memory: 30Mi
   type: http
-description: |
-  > A simple form to fill, nothing special right?
+description: '> A simple form to fill, nothing special right?
+
 
   **Author** : Aghilesino
+
+  '
 flags:
-  - shellmates{7HE_w3B_is_w31RD}
+- shellmates{7HE_w3B_is_w31RD}
 name: Post the Get
 state: visible
 type: standard

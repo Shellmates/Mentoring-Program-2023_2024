@@ -7,3 +7,5 @@ special-header.    be_special-header
 render.    be_render
 lsaas-1.    be_lsaas-1
 lsaas-2.    be_lsaas-2
+sqli-2.    be_sqli-2
+lsaas-3.    be_lsaas-3

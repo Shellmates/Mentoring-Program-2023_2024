@@ -15,24 +15,27 @@ deployment:
     cpu: 100m
     memory: 100Mi
   name: lsaas-3
-  nodePort: 
+  nodePort: 30609
   replicasNumber: 1
   requests:
     cpu: 10m
     memory: 30Mi
   type: http
-description: |
-  >  Let's see if you can make through this injection too.
+description: '>  Let''s see if you can make through this injection too.
 
 
-  **Author** : ouxs
 
+  **Author** : souad
+
+  '
 difficulty: hard
+files:
+- ./challenge/app/app.py
 flags:
 - shellmates{I_sH0uLD_hAvE_DOcUM3ntED_WelL_AB0UT_PYTH0n_R3gex_BefOR3_Th4t}
 name: lsAAS 3
-state: hidden
+state: visible
 type: standard
-value: 500
+value: 700
 version: '0.1'
 wave: 3

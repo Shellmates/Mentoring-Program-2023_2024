@@ -53,7 +53,7 @@ if (isset($_POST["user"]) && isset($_POST["pass"]) && (!empty($_POST["user"])) &
 </head>
 <body>
     <?php if (isset($logged_in) && $logged_in): ?>
-    <p>Welcome back admin! Have a flag: <?=htmlspecialchars($flag);?><p>
+    <p>Have a flag: <?=htmlspecialchars($flag);?><p>
     <?php else: ?>
     <form method="post">
         <input type="text" placeholder="Username" name="user" required>

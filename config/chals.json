@@ -188,5 +188,25 @@
         "path": "web-server/lsaas-2",
         "nodeport": 30607,
         "port": 1607
+    },
+    "sqli-2": {
+        "name": "sqli-2",
+        "subdomain": "sqli-2",
+        "type": "http",
+        "category": "web-server",
+        "autoban": false,
+        "path": "web-server/sqli-2",
+        "nodeport": 30608,
+        "port": 1608
+    },
+    "lsaas-3": {
+        "name": "lsaas-3",
+        "subdomain": "lsaas-3",
+        "type": "http",
+        "category": "web-server",
+        "autoban": false,
+        "path": "web-server/lsaas-3",
+        "nodeport": 30609,
+        "port": 1609
     }
 }

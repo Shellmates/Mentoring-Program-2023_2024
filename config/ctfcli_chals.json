@@ -24,5 +24,8 @@
     "web-server/special-header",
     "web-server/render",
     "web-server/lsaas-1",
-    "web-server/lsaas-2"
+    "web-server/lsaas-2",
+    "web-server/sqli-2",
+    "web-server/lsaas-3",
+    "web-server/lsaas-3/"
 ]
