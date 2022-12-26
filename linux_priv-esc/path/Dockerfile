@@ -20,7 +20,7 @@ RUN chown root:ctf-cracked flag.txt && chmod 555 my_ls
 
 RUN echo "*/15 * * * * root	rm -rf /tmp/*" >> /etc/crontab 
 RUN chmod -r /tmp /var/tmp /run/lock
-
+RUN chmod go-rx /usr/bin/passwd
 
 EXPOSE 22
 

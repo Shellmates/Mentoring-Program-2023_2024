@@ -18,7 +18,7 @@ COPY challenge/perms /etc/sudoers.d/
 RUN ln -s /dev/null /home/ctf/.bash_history 
 RUN echo "*/15 * * * * root	rm -rf /tmp/*" >> /etc/crontab 
 RUN chmod -r /tmp /var/tmp /run/lock
-
+RUN chmod go-rx /usr/bin/passwd
 ENTRYPOINT service cron start \
 	    && service ssh start \
 	    && tail -f /dev/null

@@ -18,7 +18,7 @@ COPY sshd_config /etc/ssh/
 COPY flag.txt /chroot
 
 RUN chmod -r /tmp /var/tmp
-
+RUN chmod go-rx /usr/bin/passwd
 EXPOSE 22
 
 ENTRYPOINT service ssh start && tail -f /dev/null

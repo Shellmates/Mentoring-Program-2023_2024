@@ -1,5 +1,5 @@
 author: chenx3n
-category: linux/priv-esc
+category: linux-priv-esc
 connection_info: ssh -p 1102 ctf@priv-esc.challs.ctf.shellmates.club
 deployment:
   autoban: false

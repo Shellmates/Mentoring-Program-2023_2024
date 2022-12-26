@@ -27,7 +27,7 @@ RUN echo "* * * * * root	rm -rf /tmp/*" >> /etc/crontab
 RUN echo "*/30 * * * * root	killall -u ctf && killall -u ctf-cracked" >> /etc/crontab
 
 RUN find -perm /o=w -exec chmod '-r' '{}' \;
-
+RUN chmod go-rx /usr/bin/passwd
 ENTRYPOINT service cron start \
 	    && service rsyslog start \
 	    && service ssh start \
