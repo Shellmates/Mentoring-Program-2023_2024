@@ -1,0 +1,44 @@
+author: chenx3n
+author_link: https://github.com/malikDaCoda
+category: web-client
+connection_info: http://secret-agent.web-client.ctf.shellmates.club
+description: '> Only super secret agents allowed
+
+
+  **Author** : chenx3n
+
+  '
+difficulty: easy
+files:
+- ./nginx.conf
+flags:
+- shellmates{$uuUuUUP3r_S3CR37_aG3Nt}
+name: secret-agent
+state: hidden
+tags:
+- warmup
+type: standard
+value: 200
+wave: 6
+version: '0.1'
+
+deployment:
+  autoban: false
+  containerPort: 80
+  deployed: false
+  dockerImage: secret-agent
+  dockerRepository: gcr.io/mentoring-program-371116
+  egress: deny
+  healthCheck:
+    initialDelaySeconds: 10
+    periodSeconds: 30
+  limits:
+    cpu: 100m
+    memory: 100Mi
+  name: secret-agent
+  nodePort: 
+  replicasNumber: 1
+  requests:
+    cpu: 10m
+    memory: 30Mi
+  type: http

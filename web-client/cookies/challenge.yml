@@ -1,0 +1,34 @@
+author: ouxs
+author_link: https://github.com/ouxs-19
+category: web-client
+connection_info: http://cookies.web-client.ctf.shellmates.club
+description: "> Can you be admin? \n\n**Author** : ouxs\n"
+difficulty: easy
+flags:
+- shellmates{AdM1n_I5_C0MING_HOM3}
+name: cookies
+state: hidden
+type: standard
+value: 200
+version: '0.1'
+wave: 6
+deployment:
+  autoban: false
+  containerPort: 1337
+  deployed: false
+  dockerImage: cookies
+  dockerRepository: gcr.io/mentoring-program-371116
+  egress: deny
+  healthCheck:
+    initialDelaySeconds: 10
+    periodSeconds: 30
+  limits:
+    cpu: 100m
+    memory: 100Mi
+  name: cookies
+  nodePort: 
+  replicasNumber: 1
+  requests:
+    cpu: 10m
+    memory: 30Mi
+  type: http

@@ -1,0 +1,40 @@
+author: ouxs
+author_link: https://github.com/ouxs-19
+category: web-client
+connection_info: http://reflected-note.web-client.ctf.shellmates.club
+description: '> Check out my app. It''s just a beta version, you can write notes and
+  share them with me.
+
+
+  **Author** : ouxs
+
+  '
+difficulty: hard
+flags:
+- shellmates{4-N0T3-4nD-R3FL3cted-XSS-IN-0N3-pacKag3}
+name: reflected-note
+state: hidden
+type: standard
+value: 500
+wave: 6
+version: '0.1'
+deployment:
+  autoban: false
+  containerPort: 1337
+  deployed: true
+  dockerImage: reflected-note
+  dockerRepository: gcr.io/mentoring-program-371116
+  egress: deny
+  healthCheck:
+    initialDelaySeconds: 10
+    periodSeconds: 30
+  limits:
+    cpu: 100m
+    memory: 100Mi
+  name: reflected-note
+  nodePort: 
+  replicasNumber: 1
+  requests:
+    cpu: 10m
+    memory: 30Mi
+  type: http

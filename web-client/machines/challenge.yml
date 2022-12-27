@@ -1,0 +1,38 @@
+author: Chih3b
+category: web-client
+description: |
+  > I hide my flag in places that no one can find.
+
+  **Link** : http://machines.web-client.ctf.shellmates.club
+
+  **Author** : Chih3b
+  
+difficulty: easy
+flags:
+- shellmates{beep_b00p_beep_b3ep_?}
+name: machines
+state: hidden
+type: standard
+value: 100
+wave: 6
+version: '0.1'
+deployment:
+  autoban: false
+  containerPort: 1337
+  deployed: false
+  dockerImage: machines
+  dockerRepository: gcr.io/mentoring-program-371116
+  egress: deny
+  healthCheck:
+    initialDelaySeconds: 10
+    periodSeconds: 30
+  limits:
+    cpu: 100m
+    memory: 100Mi
+  name: machines
+  nodePort: 
+  replicasNumber: 1
+  requests:
+    cpu: 10m
+    memory: 30Mi
+  type: http
