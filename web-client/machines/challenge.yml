@@ -1,21 +1,6 @@
 author: Chih3b
 category: web-client
-description: |
-  > I hide my flag in places that no one can find.
-
-  **Link** : http://machines.web-client.ctf.shellmates.club
-
-  **Author** : Chih3b
-  
-difficulty: easy
-flags:
-- shellmates{beep_b00p_beep_b3ep_?}
-name: machines
-state: hidden
-type: standard
-value: 100
-wave: 6
-version: '0.1'
+connection_info: http://machines.web-client.ctf.challs.shellmates.club
 deployment:
   autoban: false
   containerPort: 1337
@@ -30,9 +15,24 @@ deployment:
     cpu: 100m
     memory: 100Mi
   name: machines
-  nodePort: 
+  nodePort: 30900
   replicasNumber: 1
   requests:
     cpu: 10m
     memory: 30Mi
   type: http
+description: '> I hide my flag in places that no one can find.
+
+
+  **Author** : Chih3b
+
+  '
+difficulty: easy
+flags:
+- shellmates{beep_b00p_beep_b3ep_?}
+name: machines
+state: hidden
+type: standard
+value: 100
+version: '0.1'
+wave: 6

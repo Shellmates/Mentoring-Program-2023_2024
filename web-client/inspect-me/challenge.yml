@@ -1,15 +1,6 @@
 author: chenx3n
 category: web-client
-description: "> Inspect me plz  \n\n**Link** : http://inspect-me.web_client.ctf.shellmates.club\n\
-  \n**Author** : chenx3n\n"
-flags:
-- shellmates{CLA$SI1111C_ch4l1enGE}
-name: inspect-me
-state: hidden
-type: standard
-value: 50
-wave: 6
-version: '0.1'
+connection_info: http://inspect-me.web_client.ctf.challs.shellmates.club
 deployment:
   autoban: false
   containerPort: 80
@@ -24,9 +15,18 @@ deployment:
     cpu: 100m
     memory: 100Mi
   name: lsaas-1
-  nodePort: 
+  nodePort: null
   replicasNumber: 1
   requests:
     cpu: 10m
     memory: 30Mi
   type: http
+description: "> Inspect me plz  \n\n**Author** : chenx3n\n"
+flags:
+- shellmates{CLA$SI1111C_ch4l1enGE}
+name: inspect-me
+state: hidden
+type: standard
+value: 50
+version: '0.1'
+wave: 6

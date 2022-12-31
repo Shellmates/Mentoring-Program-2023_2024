@@ -1,23 +1,7 @@
 author: ouxs
 author_link: https://github.com/ouxs-19
 category: web-client
-connection_info: http://reflected-note.web-client.ctf.shellmates.club
-description: '> Check out my app. It''s just a beta version, you can write notes and
-  share them with me.
-
-
-  **Author** : ouxs
-
-  '
-difficulty: hard
-flags:
-- shellmates{4-N0T3-4nD-R3FL3cted-XSS-IN-0N3-pacKag3}
-name: reflected-note
-state: hidden
-type: standard
-value: 500
-wave: 6
-version: '0.1'
+connection_info: http://reflected-note.web-client.challs.ctf.shellmates.club
 deployment:
   autoban: false
   containerPort: 1337
@@ -32,9 +16,25 @@ deployment:
     cpu: 100m
     memory: 100Mi
   name: reflected-note
-  nodePort: 
+  nodePort: null
   replicasNumber: 1
   requests:
     cpu: 10m
     memory: 30Mi
   type: http
+description: '> Check out my app. It''s just a beta version, you can write notes and
+  share them with me.
+
+
+  **Author** : ouxs
+
+  '
+difficulty: hard
+flags:
+- shellmates{4-N0T3-4nD-R3FL3cted-XSS-IN-0N3-pacKag3}
+name: reflected-note
+state: hidden
+type: standard
+value: 500
+version: '0.1'
+wave: 6
