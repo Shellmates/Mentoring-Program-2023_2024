@@ -1,21 +1,13 @@
-FROM python:3.9.5-alpine
+FROM buildkite/puppeteer
 
-RUN apk add --no-cache --virtual .build-deps gcc musl-dev  chromium udev linux-headers nginx python3-dev jpeg-dev zlib-dev g++ freetype-dev 
- 
-RUN mkdir  /ctf 
+COPY app /app
 
-COPY nginx.conf entrypoint.sh /ctf/
+WORKDIR /app
 
-COPY app /ctf/app/
+RUN npm install
 
-WORKDIR /ctf
+RUN useradd ctf
 
-RUN pip install -r app/requirements.txt
+USER ctf
 
-RUN pip install uwsgi
-
-RUN chmod 777 /ctf/app/static/
-
-RUN chmod +x entrypoint.sh 
-
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["npm", "start"]

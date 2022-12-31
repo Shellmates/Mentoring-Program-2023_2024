@@ -4,11 +4,11 @@ category: web-client
 connection_info: http://reflected-note.web-client.challs.ctf.shellmates.club
 deployment:
   autoban: false
-  containerPort: 1337
+  containerPort: 5000
   deployed: true
   dockerImage: reflected-note
   dockerRepository: gcr.io/mentoring-program-371116
-  egress: deny
+  egress: allow
   healthCheck:
     initialDelaySeconds: 10
     periodSeconds: 30
@@ -35,6 +35,7 @@ flags:
 name: reflected-note
 state: hidden
 type: standard
-value: 500
+value: 300
 version: '0.1'
 wave: 6
+
