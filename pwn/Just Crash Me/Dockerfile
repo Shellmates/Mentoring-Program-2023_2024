@@ -8,8 +8,7 @@ RUN useradd -ms /bin/sh StackSmasher
 WORKDIR /home/StackSmasher
 
 
-COPY ./flag.txt ./
-COPY ./prog ./
+COPY challenge/ .
 
 
 RUN chown -R root:StackSmasher /home/StackSmasher && \
@@ -20,6 +19,5 @@ RUN chown -R root:StackSmasher /home/StackSmasher && \
 
 EXPOSE 8000
 
-COPY entrypoint.sh /
-RUN chmod +x /entrypoint.sh
-CMD ["/entrypoint.sh"]
+RUN chmod +x ./entrypoint.sh
+CMD ["./entrypoint.sh"]
