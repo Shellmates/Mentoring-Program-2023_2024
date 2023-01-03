@@ -1,10 +1,10 @@
 author: Chih3b
 category: web-client
-connection_info: http://machines.web-client.ctf.challs.shellmates.club
+connection_info: http://machines.web-client.challs.ctf.shellmates.club
 deployment:
   autoban: false
   containerPort: 1337
-  deployed: false
+  deployed: true
   dockerImage: machines
   dockerRepository: gcr.io/mentoring-program-371116
   egress: deny
@@ -31,7 +31,7 @@ difficulty: easy
 flags:
 - shellmates{beep_b00p_beep_b3ep_?}
 name: machines
-state: hidden
+state: visible
 type: standard
 value: 100
 version: '0.1'

@@ -21,12 +21,17 @@ deployment:
     cpu: 10m
     memory: 30Mi
   type: http
-description: |
-  > Could do you render the flag for me?
+description: '> Could do you render the flag for me?
+
 
   **Author** : ouxs, hasna
+
+  '
 flags:
-  - shellmates{SSTI_X_J1NJA_893274}
+- shellmates{SSTI_X_J1NJA_893274}
+hints:
+- This is a flask web application with jinja2, search for known vulnerabilities about
+  it.
 name: render
 state: visible
 type: standard

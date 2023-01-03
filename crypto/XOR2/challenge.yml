@@ -1,14 +1,16 @@
 author: haithem_lamri
 category: crypto
-description: "> I've xored my flag using a random key, could you find my secret flag\
-  \ ?  \n\n**Author** : haithem_lamri\n"
+description: |
+  > I've xored my flag using a random key, could you find my secret flag ?
+
+  **Author** : haithem_lamri
 difficulty: hard
 files:
-- ./enc.txt
+  - ./enc.txt
 flags:
-- shellmates{Kn0wn_Pl4in_73xT_4774ck}
+  - shellmates{Kn0wn_Pl4in_73xT_4774ck}
 name: X0R2
-state: hidden
+state: visible
 type: standard
 value: 400
 version: '0.1'

@@ -5,7 +5,7 @@ connection_info: http://cookies.web-client.challs.ctf.shellmates.club
 deployment:
   autoban: false
   containerPort: 1337
-  deployed: false
+  deployed: true
   dockerImage: cookies
   dockerRepository: gcr.io/mentoring-program-371116
   egress: deny
@@ -16,7 +16,7 @@ deployment:
     cpu: 100m
     memory: 100Mi
   name: cookies
-  nodePort: null
+  nodePort: 30903
   replicasNumber: 1
   requests:
     cpu: 10m
@@ -27,7 +27,7 @@ difficulty: easy
 flags:
 - shellmates{AdM1n_I5_C0MING_HOM3}
 name: cookies
-state: hidden
+state: visible
 type: standard
 value: 200
 version: '0.1'

@@ -32,6 +32,9 @@ description: '> SQL injections are still a problem yes, even in 2021.
   '
 flags:
 - shellmates{c0ngr4tul4t10ns_U_d1d_1t!!_fe4cd84591ea}
+hints:
+- Find a way to write queries without spaces.
+- Search how to **unite** data in SQL.
 name: SQLi 2
 state: visible
 type: standard

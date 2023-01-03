@@ -33,6 +33,8 @@ files:
 - ./challenge/app/app.py
 flags:
 - shellmates{I_sH0uLD_hAvE_DOcUM3ntED_WelL_AB0UT_PYTH0n_R3gex_BefOR3_Th4t}
+hints:
+- We all know that $ assumes the end, does it here too?
 name: lsAAS 3
 state: visible
 type: standard

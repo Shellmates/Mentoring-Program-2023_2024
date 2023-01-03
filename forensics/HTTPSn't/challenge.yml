@@ -1,25 +1,21 @@
-name: "HTTPSn't"
-author: "hfz"
-
+author: hfz
 category: forensics
-difficulty: easy
+description: '> Recover the registration password from this capture session.
 
-description: |
-  > Recover the registration password from this capture session.
   > Flag format : shellmates{password}
+
 
   **Author** : hfz
 
-value: 50
-type: standard
-
-flags:
-  - shellmates{Whaat?!_HTTP?!_G0_upgr4d3_t0_HTTPS!}
-
+  '
+difficulty: easy
 files:
-  - ./httpsn't.pcapng
-
-state: hidden
+- ./httpsn't.pcapng
+flags:
+- shellmates{Whaat?!_HTTP?!_G0_upgr4d3_t0_HTTPS!}
+name: HTTPSn't
+state: visible
+type: standard
+value: 50
+version: '0.1'
 wave: 5
-
-version: "0.1"

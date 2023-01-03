@@ -1,31 +1,16 @@
-name: "baby-rev"
-author: "ouxs"
-author_link: "https://github.com/ouxs-19"
-
-category: reverse 
+author: ouxs
+author_link: https://github.com/ouxs-19
+category: reverse
+description: "> Only the worthy ones shall pass through my gate.  \n> Flag : shellmates{PASSWORD}\
+  \  \n> **shellmates** and not **Shellmates**  \n\n**Author** : ouxs\n"
 difficulty: easy
-
-description: |
-  > Only the worthy ones shall pass through my gate.  
-  > Flag : shellmates{PASSWORD}  
-  > **shellmates** and not **Shellmates**  
-
-  **Author** : ouxs
-
-
-
-
-
-flags:
-  - shellmates{EASY_EASY}
-
 files:
-  - ./files/baby_rev
-
-state: hidden
-wave: 7
-value: 50
+- ./files/baby_rev
+flags:
+- shellmates{EASY_EASY}
+name: baby-rev
+state: visible
 type: standard
-
-
-version: "0.1"
+value: 50
+version: '0.1'
+wave: 7

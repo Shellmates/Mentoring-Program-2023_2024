@@ -13,10 +13,10 @@ deployment:
     initialDelaySeconds: 10
     periodSeconds: 30
   limits:
-    cpu: 100m
-    memory: 100Mi
+    cpu: 300m
+    memory: 200Mi
   name: reflected-note
-  nodePort: null
+  nodePort: 30901
   replicasNumber: 1
   requests:
     cpu: 10m
@@ -33,9 +33,8 @@ difficulty: hard
 flags:
 - shellmates{4-N0T3-4nD-R3FL3cted-XSS-IN-0N3-pacKag3}
 name: reflected-note
-state: hidden
+state: visible
 type: standard
 value: 300
 version: '0.1'
 wave: 6
-

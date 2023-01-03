@@ -26,6 +26,9 @@ description: "> Speed is the way to go.  \n\n**Password** : ctf \n**Author** : o
 difficulty: hard
 flags:
 - shellmates{83C4r3FU11WH3NY0UD341W17H71M317C4N76377r1CKY}
+hints:
+- The cronjobs are not part of the solution for this challenge, they are just meant
+  to keep the challenge up and in good health.
 name: speed
 state: visible
 tags:

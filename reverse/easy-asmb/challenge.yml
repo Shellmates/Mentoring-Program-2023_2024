@@ -1,26 +1,15 @@
-name: "easy-asmb"
-author: "souad"
-
+author: souad
 category: reverse
+description: "> Well, this time I changed the approach, I wrote the function that\
+  \ checks the key. \n> See if you can reverse it.\n\n**Author** : souad\n"
 difficulty: easy
-
-description: |
-  > Well, this time I changed the approach, I wrote the function that checks the key. 
-  > See if you can reverse it.
-
-  **Author** : souad
-
-
-
-flags:
-  - shellmates{A5dS-C221-av4x}
-
 files:
-  - ./easy-asmb
-
-state: hidden
-wave: 7
-value: 100
+- ./easy-asmb
+flags:
+- shellmates{A5dS-C221-av4x}
+name: easy-asmb
+state: visible
 type: standard
-
-version: "0.1"
+value: 100
+version: '0.1'
+wave: 7

@@ -1,26 +1,16 @@
-name: "input-flag"
-author: "chenx3n"
-author_link: "https://github.com/malikDaCoda"
-
+author: chenx3n
+author_link: https://github.com/malikDaCoda
 category: reverse
+description: "> Can you help me pass the right input to get the flag ?  \n\n**Author**\
+  \ : chenx3n\n"
 difficulty: easy
-
-description: |
-  > Can you help me pass the right input to get the flag ?  
-
-  **Author** : chenx3n
-
-
-
-flags:
-  - shellmates{N3v3R_$torE_$ENs1TIV3_1nFOrMa7IOn_P1aiNtexT_In_yoUr_bin4rI3S}
-
 files:
-  - ./challenge/chall
-
-state: hidden
-wave: 7
-value: 50
+- ./challenge/chall
+flags:
+- shellmates{N3v3R_$torE_$ENs1TIV3_1nFOrMa7IOn_P1aiNtexT_In_yoUr_bin4rI3S}
+name: input-flag
+state: visible
 type: standard
-
-version: "0.1"
+value: 50
+version: '0.1'
+wave: 7

@@ -1,5 +1,5 @@
 author: ouxs
-category: linux/priv-esc
+category: linux-priv-esc
 connection_info: ssh -p 1100 ctf@priv-esc.challs.ctf.shellmates.club
 deployment:
   autoban: false
