@@ -248,5 +248,15 @@
         "path": "pwn/Just Crash Me",
         "nodeport": 30400,
         "port": 1400
+    },
+    "just-crash-me": {
+        "name": "just-crash-me",
+        "subdomain": "just-crash-me",
+        "type": "tcp",
+        "category": "pwn",
+        "autoban": false,
+        "path": "pwn/Just Crash Me",
+        "nodeport": 30400,
+        "port": 1400
     }
 }

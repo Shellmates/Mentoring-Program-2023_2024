@@ -5,14 +5,14 @@ deployment:
   autoban: false
   containerPort: 8000
   deployed: true
-  dockerImage: inspect-me
-  name: inspect-me
+  dockerImage: just-crash-me
+  name: just-crash-me
   nodePort: 30400
   type: tcp
 description: ">  Just Crash IT. \n\n**Author** : ouxs  \n"
 difficulty: easy
 files:
-- ./prog
+- ./challenge/prog
 flags:
 - shellmates{always_ensure_memory_saf3ty}
 name: Just crash Me
