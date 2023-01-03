@@ -1,31 +1,23 @@
-name: "Just crash Me"
-author: "ouxs"
-
+author: ouxs
 category: pwn
-difficulty: easy
-
-description: |
-  >  Just Crash IT. 
-
-  **Author** : ouxs  
-
-connection_info: nc pwn.challs.ctf.shellmates.club ${PORT}  
-value: 100
-type: standard
-
-flags:
-  - shellmates{always_ensure_memory_saf3ty}
-
-state: hidden
-files:
-  - ./prog
-version: "0.1"
+connection_info: nc pwn.challs.ctf.shellmates.club 1400
 deployment:
   autoban: false
   containerPort: 8000
   deployed: true
   dockerImage: inspect-me
   name: inspect-me
-  nodePort: 
+  nodePort: 30400
   type: tcp
+description: ">  Just Crash IT. \n\n**Author** : ouxs  \n"
+difficulty: easy
+files:
+- ./prog
+flags:
+- shellmates{always_ensure_memory_saf3ty}
+name: Just crash Me
+state: hidden
+type: standard
+value: 100
+version: '0.1'
 wave: 8

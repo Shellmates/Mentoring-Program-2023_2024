@@ -242,11 +242,11 @@
     "inspect-me": {
         "name": "inspect-me",
         "subdomain": "inspect-me",
-        "type": "http",
-        "category": "web-client",
+        "type": "tcp",
+        "category": "pwn",
         "autoban": false,
-        "path": "web-client/inspect-me/",
-        "nodeport": 30904,
-        "port": 1904
+        "path": "pwn/Just Crash Me",
+        "nodeport": 30400,
+        "port": 1400
     }
 }
