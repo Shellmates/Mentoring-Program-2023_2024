@@ -1,0 +1,31 @@
+name: "Just crash Me"
+author: "ouxs"
+
+category: pwn
+difficulty: easy
+
+description: |
+  >  Just Crash IT. 
+
+  **Author** : ouxs  
+
+connection_info: nc pwn.challs.ctf.shellmates.club ${PORT}  
+value: 100
+type: standard
+
+flags:
+  - shellmates{always_ensure_memory_saf3ty}
+
+state: hidden
+files:
+  - ./prog
+version: "0.1"
+deployment:
+  autoban: false
+  containerPort: 8000
+  deployed: true
+  dockerImage: inspect-me
+  name: inspect-me
+  nodePort: 
+  type: tcp
+wave: 8

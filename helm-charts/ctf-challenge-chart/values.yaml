@@ -2,27 +2,27 @@ deployment:
   replicasNumber: 1
   # Type of the challenge either tcp or http 
   # type: http 
-  dockerRepository: gcr.io/gdg-ctf-2022
+  dockerRepository: gcr.io/mentoring-program-371116
   # dockerImage: test-image
   # If the challenge don't expose any port then leave it empty
   # containerPort: 80
   # Port that will be exposed on each k8s node 
   # nodePort: 30002
   limits:
-    cpu: 200m
-    memory: 500Mi 
-  requests:
     cpu: 100m
-    memory: 200Mi 
+    memory: 100Mi
+  requests:
+    cpu: 10m
+    memory: 30Mi
 
-  # healthCheck:
-  #   initialDelaySeconds: 10
-  #   periodSeconds: 100
+  healthCheck:
+    initialDelaySeconds: 10
+    periodSeconds: 100
 
   # Allow/Deny egress (outcoming) traffic from pod
   # "allow" -> Allow outcoming traffic
   # "deny" -> Deny outcoming traffic
-  egress: "allow"
+  egress: "deny"
 
   other: 
     # parameters of pod annotations 
