@@ -24,8 +24,8 @@ deployment:
   autoban: false
   containerPort: 8000
   deployed: true
-  dockerImage: inspect-me
-  name: inspect-me
+  dockerImage: just-crash-me
+  name: just-crash-me
   nodePort: 
   type: tcp
 wave: 8
