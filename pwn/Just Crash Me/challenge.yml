@@ -10,7 +10,7 @@ description: |
   **Author** : ouxs  
 
 connection_info: nc pwn.challs.ctf.shellmates.club ${PORT}  
-value: 100
+value: 50
 type: standard
 
 flags:

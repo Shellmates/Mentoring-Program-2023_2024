@@ -1,0 +1,37 @@
+name: "alone"
+author: "ouxs"
+
+category: pwn
+difficulty: easy
+
+description: |
+  > I swear this **gets** will ruin everything.    
+
+  **Author** : ouxs
+
+
+connection_info: nc pwn.challs.ctf.shellmates.club ${PORT}
+
+value: 300
+type: standard
+
+flags:
+  - shellmates{Ar3_P30Pl3_ST1LL_U$In9_GETS!!!!}
+
+state: hidden
+
+files:
+  - ./src/chall.c
+  - ./challenge/chall
+
+version: "0.1"
+
+deployment:
+  autoban: false
+  containerPort: 1337
+  deployed: false
+  dockerImage: alone
+  name: alone
+  nodePort: 
+  type: tcp
+wave: 8

@@ -1,0 +1,40 @@
+name: "NegativeSum"
+author: "1m4D"
+author_link: "https://github.com/imadbourouche"
+
+category: pwn
+
+difficulty: hard
+
+description: |
+  > We learned that the sum of two positives gives a positive.  
+  > This rule is no longer valid here  
+
+  **Author** : 1m4D
+
+flags:
+  - shellmates{1_10v3_1nt3ger_0v3rF10w}
+
+connection_info: nc pwn.challs.ctf.shellmates.club ${PORT}
+
+files:
+  - ./src/challenge.c
+
+tags:
+  - integer overflow
+
+value: 100
+type: standard
+
+state: hidden
+
+version: "0.1"
+deployment:
+  autoban: false
+  containerPort: 1337
+  deployed: false
+  dockerImage: "NegativeSum"
+  name: "NegativeSum"
+  nodePort: 
+  type: tcp
+wave: 8

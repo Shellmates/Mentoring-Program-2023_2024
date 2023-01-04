@@ -1,0 +1,36 @@
+name: "ovryt2win"
+author: "ouxs"
+
+category: pwn
+difficulty: easy
+
+description: |
+  > This time I won't give it to you, you have to get it by yourself  
+
+  **Author** : ouxs
+
+
+connection_info: nc pwn.challs.ctf.shellmates.club ${PORT}
+
+value: 400
+type: standard
+
+flags:
+  - shellmates{Ov3r1ting_IP_FTW$$_7327394}
+
+state: hidden
+
+files:
+  - ./src/chall.c
+  - ./challenge/chall
+
+version: "0.1"
+deployment:
+  autoban: false
+  containerPort: 1337
+  deployed: false
+  dockerImage: ovryt2win
+  name: ovryt2win
+  nodePort: 
+  type: tcp
+wave: 8

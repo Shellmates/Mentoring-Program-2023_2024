@@ -1,0 +1,34 @@
+name: "Deadbeef"
+author: "ouxs"
+
+category: pwn
+difficulty: easy
+
+description: |
+  > Can you deadbeef the program??  
+
+  **Author** : ouxs
+
+connection_info: nc pwn.challs.ctf.shellmates.club ${PORT}
+value: 100
+type: standard
+
+flags:
+  - shellmates{D34D_B333333333F_IN70_t|-|E_$ERV3R}
+
+state: hidden
+
+files:
+  - ./src/chall.c
+  - ./challenge/chall
+
+version: "0.1"
+deployment:
+  autoban: false
+  containerPort: 1337
+  deployed: false
+  dockerImage: deadbeef
+  name: deadbeef
+  nodePort: 
+  type: tcp
+wave: 8
