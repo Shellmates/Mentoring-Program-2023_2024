@@ -1,0 +1,35 @@
+author: ouxs
+category: pwn
+
+connection_info: nc pwn.challs.ctf.shellmates.club 1404
+
+deployment:
+  autoban: false
+  containerPort: 1337
+  deployed: true
+  dockerImage: fmt-leak
+  name: fmt-leak
+  nodePort: 30404
+  type: tcp
+
+description: ">  Start your journey in format string. \n\n**Author** : ouxs  \n"
+
+difficulty: easy
+
+files:
+- ./challenge/fake.c
+
+flags:
+- shellmates{FMT_STR1NG_HITS_AGAIN}
+
+name: fmt leak
+
+state: hidden
+
+type: standard
+
+value: 300
+
+version: '0.1'
+
+wave: 8
