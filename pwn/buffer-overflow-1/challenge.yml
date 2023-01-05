@@ -1,6 +1,4 @@
-name: "Just crash Me"
-author: "ouxs"
-
+author: ouxs
 category: pwn
 difficulty: easy
 
@@ -17,15 +15,14 @@ flags:
   - shellmates{always_ensure_memory_saf3ty}
 
 state: hidden
-files:
-  - ./prog
 version: "0.1"
 deployment:
   autoban: false
   containerPort: 8000
   deployed: true
-  dockerImage: just-crash-me
-  name: just-crash-me
-  nodePort: 
+  dockerImage: buffer-overflow-1
+  name: buffer-overflow-1
+  nodePort: 30400
   type: tcp
+name: Buffer overflow 1
 wave: 8

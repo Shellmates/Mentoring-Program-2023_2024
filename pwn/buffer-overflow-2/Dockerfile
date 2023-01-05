@@ -1,14 +1,12 @@
-FROM i386/ubuntu:latest
+FROM ubuntu:22.04
 
 RUN apt-get update && apt-get upgrade -y
 # Setup challenge environment
-RUN apt-get install -y socat gcc-multilib gdb
+RUN apt-get install -y socat gcc-multilib 
 
 WORKDIR /challenge
 COPY challenge .
-COPY src/chall.c .
 
-RUN gcc -no-pie chall.c -o chall
 RUN chmod +x entrypoint.sh chall
 
 USER nobody 

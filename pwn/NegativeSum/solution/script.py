@@ -18,9 +18,9 @@ b=b'31432'
 
 conn = remote('localhost',1337)
 print(conn.recvline())
-print(conn.recvuntil(b'a='))
+print(conn.recvuntil(b'a = '))
 conn.sendline(a)
-print(conn.recvuntil(b'b='))
+print(conn.recvuntil(b'b = '))
 conn.sendline(b)
 print(conn.recvall())
 

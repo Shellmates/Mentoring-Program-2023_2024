@@ -1,20 +1,22 @@
-name: "Deadbeef"
+name: "Buffer overflow 4"
 author: "ouxs"
 
 category: pwn
 difficulty: easy
 
 description: |
-  > Can you deadbeef the program??  
+  > I swear this **gets** will ruin everything.    
 
   **Author** : ouxs
 
+
 connection_info: nc pwn.challs.ctf.shellmates.club ${PORT}
-value: 100
+
+value: 400
 type: standard
 
 flags:
-  - shellmates{D34D_B333333333F_IN70_t|-|E_$ERV3R}
+  - shellmates{Ar3_P30Pl3_ST1LL_U$In9_GETS!!!!}
 
 state: hidden
 
@@ -23,12 +25,13 @@ files:
   - ./challenge/chall
 
 version: "0.1"
+
 deployment:
   autoban: false
   containerPort: 1337
   deployed: false
-  dockerImage: deadbeef
-  name: deadbeef
+  dockerImage: buffer-overflow-4
+  name: buffer-overflow-4
   nodePort: 
   type: tcp
 wave: 8

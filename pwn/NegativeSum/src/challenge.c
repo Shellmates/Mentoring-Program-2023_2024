@@ -12,20 +12,24 @@ int main(){
     printf("Welcome to the NegativeSum challenge\n");
     
     short a,b;
-    printf("a= ");
+
+    printf("a = ");
     scanf("%hd",&a);
-    printf("b= ");
+
+    printf("b = ");
     scanf("%hd",&b);
     
     if(a>0 && b>0){
-        short result=a+b;
-        if(result==-1337){
+        short result = a+b;
+        printf("> result = %hd\n", result);
+
+        if (result == -1337){
             printf("Congrats Here is your flag: \n ");
             system("/bin/cat flag\n");
-        }else{
+        } else {
             printf("A long way to become a 1337!\n");
         }
-    }else{
+    } else {
         printf("We accept only positive values!\n");
     }
     

@@ -1,22 +1,20 @@
-name: "alone"
+name: "Buffer overflow 2"
 author: "ouxs"
 
 category: pwn
 difficulty: easy
 
 description: |
-  > I swear this **gets** will ruin everything.    
+  > Can you deadbeef the program??  
 
   **Author** : ouxs
 
-
 connection_info: nc pwn.challs.ctf.shellmates.club ${PORT}
-
-value: 300
+value: 250
 type: standard
 
 flags:
-  - shellmates{Ar3_P30Pl3_ST1LL_U$In9_GETS!!!!}
+  - shellmates{D34D_B333333333F_IN70_t|-|E_$ERV3R}
 
 state: hidden
 
@@ -25,13 +23,12 @@ files:
   - ./challenge/chall
 
 version: "0.1"
-
 deployment:
   autoban: false
   containerPort: 1337
   deployed: false
-  dockerImage: alone
-  name: alone
+  dockerImage: buffer-overflow-2
+  name: buffer-overflow-2
   nodePort: 
   type: tcp
 wave: 8

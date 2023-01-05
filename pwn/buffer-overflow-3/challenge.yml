@@ -1,4 +1,4 @@
-name: "ovryt2win"
+name: "Buffer overflow 3"
 author: "ouxs"
 
 category: pwn
@@ -12,7 +12,7 @@ description: |
 
 connection_info: nc pwn.challs.ctf.shellmates.club ${PORT}
 
-value: 400
+value: 300
 type: standard
 
 flags:
@@ -29,8 +29,8 @@ deployment:
   autoban: false
   containerPort: 1337
   deployed: false
-  dockerImage: ovryt2win
-  name: ovryt2win
+  dockerImage: buffer-overflow-3
+  name: buffer-overflow-3
   nodePort: 
   type: tcp
 wave: 8

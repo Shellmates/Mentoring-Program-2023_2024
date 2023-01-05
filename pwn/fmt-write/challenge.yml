@@ -1,0 +1,35 @@
+author: souad
+category: pwn
+
+connection_info: nc pwn.challs.ctf.shellmates.club ${PORT}
+
+deployment:
+  autoban: false
+  containerPort: 1337
+  deployed: false
+  dockerImage: fmt-write
+  name: fmt-write
+  nodePort: 
+  type: tcp
+
+description: ">  Try to write something. \n\n**Author** : souad  \n"
+
+difficulty: easy
+
+files:
+- ./src/source.c
+
+flags:
+- shellmates{Fmt_str1nG_CAN_WRItE_tO0}
+
+name: fmt write 
+
+state: hidden
+
+type: standard
+
+value: 500
+
+version: '0.1'
+
+wave: 8
