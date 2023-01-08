@@ -11,7 +11,7 @@ PROJECT_ID = "mentoring-program-371116"
 STATS_PORT = 8080
 STATS_USER = "shellmates"
 STATS_PASSWORD = "4YALhtxXP4qAsqPNxRinok0UeXDu6H"
-DOMAIN_NAME = ""
+DOMAIN_NAME = "challs.ctf.shellmates.club"
 HAPROXY_ROOT = "/etc/haproxy"
 HAPROXY_MAPS_ROOT = f"{HAPROXY_ROOT}/maps"
 HTTP_HOSTS_MAP = "http-hosts.map"
@@ -47,6 +47,12 @@ CONCUR_CONNS = 25 # allow at most 25 concurrent connections (per IP)
 
 # CTFd decay
 DECAY = 50
+INITIAL = 500
+MINIMUM = 50
+DYNAMIC_SCORING = 'dynamic'
+STATIC_SCORING = 'standard'
+DEFAULT_SCORING_TYPE = DYNAMIC_SCORING
+
 MAX_NODES = 1
 # NODES_FQDN = "gke-nodes.internal"
 NODES_FQDN = "10.132.0.5"
@@ -81,6 +87,7 @@ FW_SKIP_CHECK = False
 DYNAMIC_CHAL_TYPE = "dynamic"
 DOCKER_CHAL_TYPE = "docker"
 PORT_PLACE_HOLDER = "${PORT}"
+DOMAIN_PLACE_HOLDER = "${DOMAIN}"
 PROJECT_ID_PLACE_HOLDER = "${PROJECT_ID}"
 
 # Override existing challenges in chals.json
@@ -102,3 +109,5 @@ CTFCLI_CMD = "/home/souad/.local/bin/ctf"
 CTFCLI_CHAL_TRACKER_PATH = "config/ctfcli_chals.json"
 CHSTATE_VISIBLE = "visible"
 CHSTATE_HIDDEN = "hidden"
+
+

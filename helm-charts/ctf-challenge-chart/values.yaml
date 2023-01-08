@@ -2,7 +2,6 @@ deployment:
   replicasNumber: 1
   # Type of the challenge either tcp or http 
   # type: http 
-  dockerRepository: gcr.io/mentoring-program-371116
   # dockerImage: test-image
   # If the challenge don't expose any port then leave it empty
   # containerPort: 80
