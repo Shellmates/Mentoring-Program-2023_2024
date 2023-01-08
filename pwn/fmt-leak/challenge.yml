@@ -18,6 +18,7 @@ difficulty: easy
 
 files:
 - ./src/source.c
+- ./challenge/challenge
 
 flags:
 - shellmates{FMT_STR1NG_HITS_AGAIN}
