@@ -113,7 +113,8 @@ def add_info(chalpath):
         chalyml = yaml.safe_load(f)
         chalyml.setdefault('version', "0.1")
         chalyml.setdefault('state', 'hidden')
-        chalyml['description'] += f'   \n\n **Author**: {chalyml["author"]}'
+        if chalyml['author'] not in chalyml['description']:
+            chalyml['description'] += f'   \n\n **Author**: {chalyml["author"]}'
         add_scoring_info(chalyml)
         add_deployment_info(chalyml, chalpath)
     with open(ymlfile, 'w') as f:
@@ -160,12 +161,12 @@ def add_conn_info(chalyml, chal: Challenge):
         name = deployment['name']
         conn = deployment['conn_type']
         conn_info = ''
-        if conn == HTTP_CONN:
-            conn_info = HTTP_CONN.format(domain=f'{name}.{DOMAIN_NAME}')
-        elif conn == NC_CONN: 
-            conn_info = NC_CONN.format(domain=f'{DOMAIN_NAME}', port=chal.port)
-        elif conn == SSH_CONN: 
-            conn_info = SSH_CONN.format(domain=f'{DOMAIN_NAME}', port=chal.port)
+        if conn == 'http':
+            conn_info = HTTP_CONN.format(domain=f'{name}.{chal.category}.{DOMAIN_NAME}')
+        elif conn == 'nc': 
+            conn_info = NC_CONN.format(domain=f'{chal.category}.{DOMAIN_NAME}', port=chal.port)
+        elif conn == 'ssh': 
+            conn_info = SSH_CONN.format(domain=f'{chal.category}.{DOMAIN_NAME}', port=chal.port)
         
         chalyml['connection_info'] = conn_info
 

@@ -1,7 +1,7 @@
 author: hfz1337
 author_link: https://github.com/hfz1337
 category: pwn
-connection_info: ''
+connection_info: nc -v pwn.challs.ctf.shellmates.club 1410
 deployment:
   autoban: false
   conn_type: nc
@@ -13,11 +13,7 @@ deployment:
   nodePort: 30410
   type: tcp
 description: "> OneNote started annoying me, so I developed FreeNote!  \n> Have fun\
-  \ creating & deleting\xB2 your notes :)  \n   \n\n **Author**: hfz1337   \n\n **Author**:\
-  \ hfz1337   \n\n **Author**: hfz1337   \n\n **Author**: hfz1337   \n\n **Author**:\
-  \ hfz1337   \n\n **Author**: hfz1337   \n\n **Author**: hfz1337   \n\n **Author**:\
-  \ hfz1337   \n\n **Author**: hfz1337   \n\n **Author**: hfz1337   \n\n **Author**:\
-  \ hfz1337"
+  \ creating & deleting\xB2 your notes :)   \n\n **Author**: hfz1337"
 difficulty: hard
 extra:
   decay: 50
