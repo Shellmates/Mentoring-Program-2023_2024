@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: freenote
+  labels:
+    category: pwn
+    challenge: freenote
+spec:
+  type: NodePort
+  selector:
+    category: pwn
+    challenge: freenote
+  ports:
+    - port: 1337
+      name: tcp
+      targetPort: 1337
+      nodePort: 30500

@@ -42,7 +42,7 @@ spec:
       containers:
         - name: server
       {{ end }}
-          image: "{{ .Values.deployment.dockerRepository }}/{{ .Values.deployment.dockerImage }}"
+          image: "{{ .Values.deployment.dockerImage }}"
           {{ if .Values.deployment.containerPort }}
           ports:
             {{if eq .Values.deployment.type "http"}}
@@ -76,7 +76,7 @@ spec:
         {{ if .Values.deployment.additionalContainers }}
         {{- range .Values.deployment.additionalContainers}}
         - name: {{ .name }}
-          image: "{{ .dockerRepository }}/{{.dockerImage }}" 
+          image: "{{ .dockerImage }}" 
           {{ if .containerPort }}
           ports:
             {{if eq .type "http"}}

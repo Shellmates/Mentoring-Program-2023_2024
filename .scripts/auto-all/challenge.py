@@ -5,6 +5,7 @@ from conf import *
 import os
 from sys import stderr
 import subprocess
+import re
 
 # Track if we're logged in to Helm registry or not
 LOGGED_IN = False if USE_REMOTE_REPO else True
@@ -65,8 +66,12 @@ class FirewallDeployException(DeployException):
 def ymlpath(chalpath):
     return f"{chalpath}/{YML_FILE}"
 
-def dockerfile_path(chalpath):
-    return f"{chalpath}/{DOCKERFILE_NAME}"
+def dockerfile_dir_path(chalpath):
+    for dir in DOCKERFILE_DIRS:
+        dockerfile = f"{chalpath}/{dir}/{DOCKERFILE_NAME}"
+        if os.path.isfile(dockerfile):
+            return f"{chalpath}/{dir}"
+    return None
 
 def log(msg, debug=DEBUG):
     debug and print(msg, file=stderr)
@@ -97,6 +102,47 @@ def load_any_chal(chalpath, quiet=False):
 
 # this if for dynamic deployable challenges
 # chalpath as {category}/{challenge_name}
+def normalize_chalname(name):
+    name = re.sub(' ', '-', name.lower())
+    name = re.sub('[^a-z0-9-]', '', name)
+    return name
+
+def add_info(chalyml, chalpath):
+    chalyml.setdefault('version', "0.1")
+    chalyml.setdefault('state', 'hidden')
+    chalyml['description'] += f'   \n\n **Author**: {chalyml["author"]}'
+    add_scoring_info(chalyml)
+    add_deployment_info(chalyml, chalpath)
+    add_isolation_info(chalyml)
+
+def add_scoring_info(chalyml):
+    scoring_type = chalyml.setdefault('type', DEFAULT_SCORING_TYPE)
+    if scoring_type == STATIC_SCORING: return
+    chalyml.setdefault('extra', {
+        "initial": INITIAL,
+        "decay": DECAY,
+        "minimum": MINIMUM,
+    })
+
+
+def add_deployment_info(chalyml, chalpath):
+    if dockerfile_dir_path(chalpath) == None:
+        return
+    normalized_name = normalize_chalname(chalyml['name'])
+    deployment = {
+        "name": normalized_name,
+        "dockerImage": f'{GCR_REPO}/{normalized_name}',
+        "autoban": AUTOBAN_DEFAULT,
+        "deployed": False,
+        "nodePort": None,
+    }
+    chalyml['deployment'].update(deployment)
+
+def add_isolation_info(chalyml):    
+    if chalyml.get('deployment').get('isolate'):
+        normalized_name = normalize_chalname(chalyml['name'])
+        chalyml['docker_image'] = f'{GCR_REPO}/{normalized_name}:latest'
+
 def load_chal(chalpath, warn=True):
     ymlfile = ymlpath(chalpath)
 
@@ -107,6 +153,9 @@ def load_chal(chalpath, warn=True):
         chal_data = yaml.safe_load(f)
         name = chal_data['name']
         log(f"[*] Loading challenge '{name}'")
+
+        add_info(chal_data, chalpath)
+                
         if chal_data.get("deployment"):
             chal = Challenge(
                 chal_data["deployment"]["name"],
@@ -121,23 +170,25 @@ def load_chal(chalpath, warn=True):
         else:
             warn and log(f"[!] Skipping challenge '{name}' as it doesn't contain a 'deployment' section")
             chal = None
+
+    with open(ymlpath(chalpath), 'w') as f:
+        yaml.safe_dump(chal_data, f, default_flow_style=False)
+
     return chal
 
 def update_chal_data(chal_data, chal: Challenge):
-    if chal_data["type"] == DYNAMIC_CHAL_TYPE:
-        chal_data["extra"]["decay"] = DECAY
     if "deployment" in chal_data:
         if chal is not None:
-            if chal_data.get("connection_info") and chal.port is not None and PORT_PLACE_HOLDER in chal_data["connection_info"]:
-                chal_data["connection_info"] = chal_data["connection_info"].replace(PORT_PLACE_HOLDER, f"{chal.port}")
-                log(f"[*] Updated connection info for '{chal.name}': {chal_data['connection_info']}")
+            conn_attr = "connection_info"
+            if chal_data.get(conn_attr):
+                if chal.port is not None:
+                    chal_data[conn_attr] = chal_data[conn_attr].replace(PORT_PLACE_HOLDER, f"{chal.port}")
+                domain = f'{chal.subdomain}.{DOMAIN_NAME}'
+                chal_data[conn_attr] = chal_data[conn_attr].replace(DOMAIN_PLACE_HOLDER, domain)
+                log(f"[*] Updated connection info for '{chal.name}': {chal_data[conn_attr]}")
             if chal.nodeport is not None:
                 chal_data["deployment"]["nodePort"] = chal.nodeport
             chal_data["deployment"]["deployed"] = chal.deployed
-    # TO-DO: fix this type of challenge
-    elif chal_data["type"] == DOCKER_CHAL_TYPE:
-        if chal_data.get("docker_image") and PROJECT_ID_PLACE_HOLDER in chal_data['docker_image']:
-            chal_data['docker_image'] = chal_data['docker_image'].replace(PROJECT_ID_PLACE_HOLDER, PROJECT_ID)
 
 def dump_chal(chal: Challenge, chalpath):
     with open(ymlpath(chalpath)) as f:
@@ -353,7 +404,7 @@ def helm_uninstall(chal: Challenge):
     log(f"[*] Undeploying '{chal.name}' from Kubernetes cluster")
     return subprocess.run(["helm", "uninstall", chal.name]).returncode == 0
 
-# Firewa ${PORT}ll
+# Firewall
 
 # For fw functions, it is assumed that the challenge is of type TCP
 
@@ -441,10 +492,9 @@ def disable_fw(chalpath, skipcheck=FW_SKIP_CHECK):
 
 def _build_image(chal: Challenge):
     if chal is not None:
-        for dir in DOCKERFILE_DIRS:
-            dockerfile = f"{chal.path}/{dir}/{DOCKERFILE_NAME}"
-            if os.path.isfile(dockerfile):
-                return subprocess.run(["gcloud", "builds", "submit", "--tag", f"{GCR_REPO}/{chal.name}"], cwd=f"{chal.path}/{dir}").returncode == 0
+        dockerfile_dir = dockerfile_dir_path(chal.path)
+        if dockerfile_dir != None:
+            return subprocess.run(["gcloud", "builds", "submit", "--tag", f"{GCR_REPO}/{chal.name}"], cwd=dockerfile_dir).returncode == 0
         else:
             raise DeployException(f"Cannot find {DOCKERFILE_NAME} in {chal.path}")
 
