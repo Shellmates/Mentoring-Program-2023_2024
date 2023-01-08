@@ -113,7 +113,8 @@ def add_info(chalpath):
         chalyml = yaml.safe_load(f)
         chalyml.setdefault('version', "0.1")
         chalyml.setdefault('state', 'hidden')
-        chalyml['description'] += f'   \n\n **Author**: {chalyml["author"]}'
+        if chalyml['author'] not in chalyml['description']:
+            chalyml['description'] += f'   \n\n **Author**: {chalyml["author"]}'
         add_scoring_info(chalyml)
         add_deployment_info(chalyml, chalpath)
     with open(ymlfile, 'w') as f:
@@ -156,7 +157,9 @@ def add_isolation_info(chalyml):
         chalyml['docker_image'] = f'{GCR_REPO}/{name}:latest'
 
 def add_conn_info(chalyml, chal: Challenge):
+    print('aaaaaa')
     if deployment := chalyml.get('deployment'):
+        print('bbbbb')
         name = deployment['name']
         conn = deployment['conn_type']
         conn_info = ''
