@@ -64,5 +64,6 @@
     "pwn/fmt-write",
     "pwn/buffer-overflow-4",
     "pwn/NegativeSum",
-    "pwn/fmt-leak/"
+    "pwn/fmt-leak/",
+    "pwn/freenote"
 ]
