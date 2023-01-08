@@ -1,37 +1,33 @@
-name: "FreeNote"
-author: "hfz1337"
-author_link: "https://github.com/hfz1337"
-
+author: hfz1337
+author_link: https://github.com/hfz1337
 category: pwn
+connection_info: ''
+deployment:
+  autoban: false
+  conn_type: nc
+  containerPort: 1337
+  deployed: false
+  dockerImage: gcr.io/mentoring-program-371116/freenote
+  name: freenote
+  nodePort: 30404
+  type: tcp
+description: "> OneNote started annoying me, so I developed FreeNote!  \n> Have fun\
+  \ creating & deleting\xB2 your notes :)  \n   \n\n **Author**: hfz1337   \n\n **Author**:\
+  \ hfz1337   \n\n **Author**: hfz1337   \n\n **Author**: hfz1337   \n\n **Author**:\
+  \ hfz1337"
 difficulty: hard
-
-description: |
-  > OneNote started annoying me, so I developed FreeNote!  
-  > Have fun creating & deleting² your notes :)  
-
-  **Author**: hfz1337
-
-connection_info: nc pwn.ctf.shellmates.club 1500
-
-image: gcr.io/glowing-reserve-336013/freenote
-
-value: 500
-type: dynamic
-
 extra:
+  decay: 50
   initial: 500
-  decay: 8
   minimum: 50
-
-flags:
-  - shellmates{ev3n_SafE_LINkinG_c4N'T_StOP_us!}
-
 files:
-  - ./dist/freenote
-  - ./dist/libc-2.32.so
-  - ./dist/ld-2.32.so
-
-
-state: visible
-
-version: "0.1"
+- ./dist/freenote
+- ./dist/libc-2.32.so
+- ./dist/ld-2.32.so
+flags:
+- shellmates{ev3n_SafE_LINkinG_c4N'T_StOP_us!}
+name: FreeNote
+state: hidden
+type: dynamic
+value: 500
+version: '0.1'
