@@ -103,20 +103,26 @@ def load_any_chal(chalpath, quiet=False):
 # this if for dynamic deployable challenges
 # chalpath as {category}/{challenge_name}
 def normalize_chalname(name):
-    name = re.sub(' ', '-', name.lower())
+    name = re.sub('[ _]', '-', name.lower())
     name = re.sub('[^a-z0-9-]', '', name)
     return name
 
-def add_info(chalyml, chalpath):
-    chalyml.setdefault('version', "0.1")
-    chalyml.setdefault('state', 'hidden')
-    chalyml['description'] += f'   \n\n **Author**: {chalyml["author"]}'
-    add_scoring_info(chalyml)
-    add_deployment_info(chalyml, chalpath)
-    add_isolation_info(chalyml)
+def add_info(chalpath):
+    ymlfile = ymlpath(chalpath)
+    with open(ymlfile) as f:
+        chalyml = yaml.safe_load(f)
+        chalyml.setdefault('version', "0.1")
+        chalyml.setdefault('state', 'hidden')
+        chalyml['description'] += f'   \n\n **Author**: {chalyml["author"]}'
+        add_scoring_info(chalyml)
+        add_deployment_info(chalyml, chalpath)
+    with open(ymlfile, 'w') as f:
+        yaml.safe_dump(chalyml, f, default_flow_style=False)
+
 
 def add_scoring_info(chalyml):
     scoring_type = chalyml.setdefault('type', DEFAULT_SCORING_TYPE)
+    chalyml.setdefault('value', INITIAL)
     if scoring_type == STATIC_SCORING: return
     chalyml.setdefault('extra', {
         "initial": INITIAL,
@@ -128,34 +134,54 @@ def add_scoring_info(chalyml):
 def add_deployment_info(chalyml, chalpath):
     if dockerfile_dir_path(chalpath) == None:
         return
-    normalized_name = normalize_chalname(chalyml['name'])
-    deployment = {
-        "name": normalized_name,
-        "dockerImage": f'{GCR_REPO}/{normalized_name}',
-        "autoban": AUTOBAN_DEFAULT,
-        "deployed": False,
-        "nodePort": None,
-    }
-    chalyml['deployment'].update(deployment)
+    try:
+        normalized_name = normalize_chalname(chalyml['name'])
+        info = {
+            "name": normalized_name,
+            "dockerImage": f'{GCR_REPO}/{normalized_name}',
+            "autoban": AUTOBAN_DEFAULT,
+            "deployed": False,
+            "nodePort": None,
+            "type": HTTP_CONN if chalyml['deployment']['conn_type'] == 'http' else TCP_TYPE,
+        }
+        for key, val in info.items():
+            chalyml['deployment'].setdefault(key, val)
+        add_isolation_info(chalyml)
+    except KeyError as e:
+        raise DeployException(e)
 
 def add_isolation_info(chalyml):    
     if chalyml.get('deployment').get('isolate'):
-        normalized_name = normalize_chalname(chalyml['name'])
-        chalyml['docker_image'] = f'{GCR_REPO}/{normalized_name}:latest'
+        name = chalyml['deployment']['name']
+        chalyml['docker_image'] = f'{GCR_REPO}/{name}:latest'
+
+def add_conn_info(chalyml, chal: Challenge):
+    if deployment := chalyml.get('deployment'):
+        name = deployment['name']
+        conn = deployment['conn_type']
+        conn_info = ''
+        if conn == HTTP_CONN:
+            conn_info = HTTP_CONN.format(domain=f'{name}.{DOMAIN_NAME}')
+        elif conn == NC_CONN: 
+            conn_info = NC_CONN.format(domain=f'{DOMAIN_NAME}', port=chal.port)
+        elif conn == SSH_CONN: 
+            conn_info = SSH_CONN.format(domain=f'{DOMAIN_NAME}', port=chal.port)
+        
+        chalyml['connection_info'] = conn_info
 
 def load_chal(chalpath, warn=True):
     ymlfile = ymlpath(chalpath)
 
     if not os.path.isfile(ymlfile):
         raise DeployException(f"No such file '{ymlfile}'")
+    
+    add_info(chalpath)
 
     with open(ymlfile) as f:
         chal_data = yaml.safe_load(f)
         name = chal_data['name']
         log(f"[*] Loading challenge '{name}'")
 
-        add_info(chal_data, chalpath)
-                
         if chal_data.get("deployment"):
             chal = Challenge(
                 chal_data["deployment"]["name"],
@@ -171,26 +197,20 @@ def load_chal(chalpath, warn=True):
             warn and log(f"[!] Skipping challenge '{name}' as it doesn't contain a 'deployment' section")
             chal = None
 
-    with open(ymlpath(chalpath), 'w') as f:
-        yaml.safe_dump(chal_data, f, default_flow_style=False)
-
     return chal
 
 def update_chal_data(chal_data, chal: Challenge):
     if "deployment" in chal_data:
         if chal is not None:
-            conn_attr = "connection_info"
-            if chal_data.get(conn_attr):
-                if chal.port is not None:
-                    chal_data[conn_attr] = chal_data[conn_attr].replace(PORT_PLACE_HOLDER, f"{chal.port}")
-                domain = f'{chal.subdomain}.{DOMAIN_NAME}'
-                chal_data[conn_attr] = chal_data[conn_attr].replace(DOMAIN_PLACE_HOLDER, domain)
-                log(f"[*] Updated connection info for '{chal.name}': {chal_data[conn_attr]}")
+            if chal.port is not None:
+                add_conn_info(chal_data, chal)
+                log(f"[*] Updated connection info for '{chal.name}': {chal_data['connection_info']}")
             if chal.nodeport is not None:
                 chal_data["deployment"]["nodePort"] = chal.nodeport
             chal_data["deployment"]["deployed"] = chal.deployed
 
 def dump_chal(chal: Challenge, chalpath):
+    log(f"[*] Updating '{ymlpath(chalpath)}'")
     with open(ymlpath(chalpath)) as f:
         chal_data = yaml.safe_load(f)
     with open(ymlpath(chalpath), 'w') as f:
@@ -569,7 +589,6 @@ def _ctfcli_sync(chalpath):
 
 def ctfcli_push(chalpath, update):
     if update:
-        log(f"[*] Updating '{ymlpath(chalpath)}'")
         chal = load_chal(chalpath, warn=False)
         dump_chal(chal, chalpath)
     log(f"[*] Pushing '{chalpath}' to CTFd")

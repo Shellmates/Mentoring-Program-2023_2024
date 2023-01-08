@@ -110,4 +110,7 @@ CTFCLI_CHAL_TRACKER_PATH = "config/ctfcli_chals.json"
 CHSTATE_VISIBLE = "visible"
 CHSTATE_HIDDEN = "hidden"
 
-
+# connection info
+NC_CONN = 'nc -v {domain} {port}'
+SSH_CONN = 'ssh -p {port} {domain}'
+HTTP_CONN = 'http://{domain}'
