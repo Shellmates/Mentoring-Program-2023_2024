@@ -139,7 +139,7 @@ def add_deployment_info(chalyml, chalpath):
         normalized_name = normalize_chalname(chalyml['name'])
         info = {
             "name": normalized_name,
-            "dockerImage": f'{GCR_REPO}/{normalized_name}',
+            #"dockerImage": f'{GCR_REPO}/{normalized_name}',
             "autoban": AUTOBAN_DEFAULT,
             "deployed": False,
             "nodePort": None,
@@ -162,7 +162,7 @@ def add_conn_info(chalyml, chal: Challenge):
         conn = deployment['conn_type']
         conn_info = ''
         if conn == 'http':
-            conn_info = HTTP_CONN.format(domain=f'{name}.{chal.category}.{DOMAIN_NAME}')
+            conn_info = HTTP_CONN.format(domain=f'{name}.{DOMAIN_NAME}')
         elif conn == 'nc': 
             conn_info = NC_CONN.format(domain=f'{chal.category}.{DOMAIN_NAME}', port=chal.port)
         elif conn == 'ssh': 
