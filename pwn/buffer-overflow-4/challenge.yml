@@ -1,37 +1,27 @@
-name: "Buffer overflow 4"
-author: "ouxs"
-
+author: ouxs
 category: pwn
-difficulty: easy
-
-description: |
-  > I swear this **gets** will ruin everything.    
-
-  **Author** : ouxs
-
-
-connection_info: nc pwn.challs.ctf.shellmates.club ${PORT}
-
-value: 400
-type: standard
-
-flags:
-  - shellmates{Ar3_P30Pl3_ST1LL_U$In9_GETS!!!!}
-
-state: hidden
-
-files:
-  - ./src/chall.c
-  - ./challenge/chall
-
-version: "0.1"
-
+connection_info: nc pwn.challs.ctf.shellmates.club 1405
 deployment:
   autoban: false
   containerPort: 1337
-  deployed: false
+  deployed: true
   dockerImage: buffer-overflow-4
   name: buffer-overflow-4
-  nodePort: 
+  nodePort: 30405
   type: tcp
+description: |
+  > I swear this **gets** will ruin everything.
+
+  **Author** : ouxs
+difficulty: easy
+files:
+  - ./src/chall.c
+  - ./challenge/chall
+flags:
+  - shellmates{Ar3_P30Pl3_ST1LL_U$In9_GETS!!!!}
+name: Buffer overflow 4
+state: visible
+type: standard
+value: 400
+version: '0.1'
 wave: 8

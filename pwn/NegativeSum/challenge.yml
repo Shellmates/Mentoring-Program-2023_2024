@@ -1,40 +1,30 @@
-name: "NegativeSum"
-author: "1m4D"
-author_link: "https://github.com/imadbourouche"
-
+author: 1m4D
+author_link: https://github.com/imadbourouche
 category: pwn
-
-difficulty: easy
-
-description: |
-  > We learned that the sum of two positives gives a positive.  
-  > This rule is no longer valid here  
-
-  **Author** : 1m4D
-
-flags:
-  - shellmates{1_10v3_1nt3ger_0v3rF10w}
-
-connection_info: nc pwn.challs.ctf.shellmates.club ${PORT}
-
-files:
-  - ./src/challenge.c
-
-tags:
-  - integer overflow
-
-value: 100
-type: standard
-
-state: hidden
-
-version: "0.1"
+connection_info: nc pwn.challs.ctf.shellmates.club 1406
 deployment:
   autoban: false
   containerPort: 1337
-  deployed: false
-  dockerImage: "NegativeSum"
-  name: "NegativeSum"
-  nodePort: 
+  deployed: true
+  dockerImage: negativesum
+  name: negativesum
+  nodePort: 30406
   type: tcp
+description: |
+  > We learned that the sum of two positives gives a positive.
+  > This rule is no longer valid here
+
+  **Author** : 1m4D
+difficulty: easy
+files:
+  - ./src/challenge.c
+flags:
+  - shellmates{1_10v3_1nt3ger_0v3rF10w}
+name: NegativeSum
+state: visible
+tags:
+  - integer overflow
+type: standard
+value: 100
+version: '0.1'
 wave: 8

@@ -6,10 +6,11 @@ deployment:
   autoban: false
   conn_type: nc
   containerPort: 1337
-  deployed: false
+  deployed: true
   dockerImage: gcr.io/mentoring-program-371116/freenote
+  isolate: false
   name: freenote
-  nodePort: 30404
+  nodePort: 30410
   type: tcp
 description: "> OneNote started annoying me, so I developed FreeNote!  \n> Have fun\
   \ creating & deleting\xB2 your notes :)  \n   \n\n **Author**: hfz1337   \n\n **Author**:\

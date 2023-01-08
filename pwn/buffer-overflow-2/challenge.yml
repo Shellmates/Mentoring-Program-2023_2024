@@ -1,34 +1,27 @@
-name: "Buffer overflow 2"
-author: "ouxs"
-
+author: ouxs
 category: pwn
-difficulty: easy
-
-description: |
-  > Can you deadbeef the program??  
-
-  **Author** : ouxs
-
-connection_info: nc pwn.challs.ctf.shellmates.club ${PORT}
-value: 250
-type: standard
-
-flags:
-  - shellmates{D34D_B333333333F_IN70_t|-|E_$ERV3R}
-
-state: hidden
-
-files:
-  - ./src/chall.c
-  - ./challenge/chall
-
-version: "0.1"
+connection_info: nc pwn.challs.ctf.shellmates.club 1402
 deployment:
   autoban: false
   containerPort: 1337
-  deployed: false
+  deployed: true
   dockerImage: buffer-overflow-2
   name: buffer-overflow-2
-  nodePort: 
+  nodePort: 30402
   type: tcp
+description: |
+  > Can you deadbeef the program??
+
+  **Author** : ouxs
+difficulty: easy
+files:
+  - ./src/chall.c
+  - ./challenge/chall
+flags:
+  - shellmates{D34D_B333333333F_IN70_t|-|E_$ERV3R}
+name: Buffer overflow 2
+state: visible
+type: standard
+value: 250
+version: '0.1'
 wave: 8
