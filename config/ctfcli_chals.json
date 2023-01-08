@@ -56,5 +56,13 @@
     "reverse/input-flag",
     "reverse/baby_rev",
     "reverse/easy-asmb",
-    "pwn/Just Crash Me"
+    "pwn/Just Crash Me",
+    "pwn/buffer-overflow-1",
+    "pwn/fmt-leak",
+    "pwn/buffer-overflow-2",
+    "pwn/buffer-overflow-3",
+    "pwn/fmt-write",
+    "pwn/buffer-overflow-4",
+    "pwn/NegativeSum",
+    "pwn/fmt-leak/"
 ]

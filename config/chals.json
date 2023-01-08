@@ -258,5 +258,75 @@
         "path": "pwn/Just Crash Me",
         "nodeport": 30400,
         "port": 1400
+    },
+    "buffer-overflow-1": {
+        "name": "buffer-overflow-1",
+        "subdomain": "buffer-overflow-1",
+        "type": "tcp",
+        "category": "pwn",
+        "autoban": false,
+        "path": "pwn/buffer-overflow-1",
+        "nodeport": 30400,
+        "port": 1400
+    },
+    "fmt-leak": {
+        "name": "fmt-leak",
+        "subdomain": "fmt-leak",
+        "type": "tcp",
+        "category": "pwn",
+        "autoban": false,
+        "path": "pwn/fmt-leak",
+        "nodeport": 30401,
+        "port": 1401
+    },
+    "buffer-overflow-2": {
+        "name": "buffer-overflow-2",
+        "subdomain": "buffer-overflow-2",
+        "type": "tcp",
+        "category": "pwn",
+        "autoban": false,
+        "path": "pwn/buffer-overflow-2",
+        "nodeport": 30402,
+        "port": 1402
+    },
+    "buffer-overflow-3": {
+        "name": "buffer-overflow-3",
+        "subdomain": "buffer-overflow-3",
+        "type": "tcp",
+        "category": "pwn",
+        "autoban": false,
+        "path": "pwn/buffer-overflow-3",
+        "nodeport": 30403,
+        "port": 1403
+    },
+    "fmt-write": {
+        "name": "fmt-write",
+        "subdomain": "fmt-write",
+        "type": "tcp",
+        "category": "pwn",
+        "autoban": false,
+        "path": "pwn/fmt-write",
+        "nodeport": 30404,
+        "port": 1404
+    },
+    "buffer-overflow-4": {
+        "name": "buffer-overflow-4",
+        "subdomain": "buffer-overflow-4",
+        "type": "tcp",
+        "category": "pwn",
+        "autoban": false,
+        "path": "pwn/buffer-overflow-4",
+        "nodeport": 30405,
+        "port": 1405
+    },
+    "negativesum": {
+        "name": "negativesum",
+        "subdomain": "negativesum",
+        "type": "tcp",
+        "category": "pwn",
+        "autoban": false,
+        "path": "pwn/NegativeSum",
+        "nodeport": 30406,
+        "port": 1406
     }
 }

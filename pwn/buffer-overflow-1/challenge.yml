@@ -1,21 +1,6 @@
 author: ouxs
 category: pwn
-difficulty: easy
-
-description: |
-  >  Just Crash IT. 
-
-  **Author** : ouxs  
-
-connection_info: nc pwn.challs.ctf.shellmates.club ${PORT}  
-value: 50
-type: standard
-
-flags:
-  - shellmates{always_ensure_memory_saf3ty}
-
-state: hidden
-version: "0.1"
+connection_info: nc pwn.challs.ctf.shellmates.club 1400
 deployment:
   autoban: false
   containerPort: 8000
@@ -24,5 +9,16 @@ deployment:
   name: buffer-overflow-1
   nodePort: 30400
   type: tcp
+description: |
+  >  Just Crash IT.
+
+  **Author** : ouxs
+difficulty: easy
+flags:
+  - shellmates{always_ensure_memory_saf3ty}
 name: Buffer overflow 1
+state: visible
+type: standard
+value: 50
+version: '0.1'
 wave: 8
