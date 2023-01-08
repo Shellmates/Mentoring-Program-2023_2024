@@ -328,5 +328,15 @@
         "path": "pwn/NegativeSum",
         "nodeport": 30406,
         "port": 1406
+    },
+    "freenote": {
+        "name": "freenote",
+        "subdomain": "freenote",
+        "type": "tcp",
+        "category": "pwn",
+        "autoban": false,
+        "path": "pwn/freenote",
+        "nodeport": 30410,
+        "port": 1410
     }
 }
