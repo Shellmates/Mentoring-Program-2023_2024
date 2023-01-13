@@ -100,8 +100,6 @@ def load_any_chal(chalpath, quiet=False):
         )
     return chal
 
-# this if for dynamic deployable challenges
-# chalpath as {category}/{challenge_name}
 def normalize_chalname(name):
     name = re.sub('[ _]', '-', name.lower())
     name = re.sub('[^a-z0-9-]', '', name)
@@ -113,6 +111,7 @@ def add_info(chalpath):
         chalyml = yaml.safe_load(f)
         chalyml.setdefault('version', "0.1")
         chalyml.setdefault('state', 'hidden')
+        chalyml.setdefault('category', os.path.dirname(chalpath))
         if chalyml['author'] not in chalyml['description']:
             chalyml['description'] += f'   \n\n **Author**: {chalyml["author"]}'
         add_scoring_info(chalyml)
@@ -124,21 +123,20 @@ def add_info(chalpath):
 def add_scoring_info(chalyml):
     scoring_type = chalyml.setdefault('type', DEFAULT_SCORING_TYPE)
     chalyml.setdefault('value', INITIAL)
-    if scoring_type == STATIC_SCORING: return
-    chalyml.setdefault('extra', {
-        "initial": INITIAL,
-        "decay": DECAY,
-        "minimum": MINIMUM,
-    })
+    if scoring_type == DYNAMIC_SCORING: 
+        chalyml.setdefault('extra', {
+            "initial": INITIAL,
+            "decay": DECAY,
+            "minimum": MINIMUM,
+        })
 
 
 def add_deployment_info(chalyml, chalpath):
     if dockerfile_dir_path(chalpath) == None:
         return
     try:
-        normalized_name = normalize_chalname(chalyml['name'])
         info = {
-            "name": normalized_name,
+            "name": normalize_chalname(chalyml['name']),
             #"dockerImage": f'{GCR_REPO}/{normalized_name}',
             "autoban": AUTOBAN_DEFAULT,
             "deployed": False,

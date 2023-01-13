@@ -1,47 +1,14 @@
 deployment:
-  replicasNumber: 1
-  # Type of the challenge either tcp or http 
-  # type: http 
-  # dockerImage: test-image
-  # If the challenge don't expose any port then leave it empty
-  # containerPort: 80
-  # Port that will be exposed on each k8s node 
-  # nodePort: 30002
+  additionalContainers: {}
   dockerRepository: gcr.io/mentoring-program-371116
-  limits:
-    cpu: 100m
-    memory: 100Mi
-  requests:
-    cpu: 10m
-    memory: 30Mi
-
+  egress: deny
   healthCheck:
     initialDelaySeconds: 10
     periodSeconds: 100
-
-  # Allow/Deny egress (outcoming) traffic from pod
-  # "allow" -> Allow outcoming traffic
-  # "deny" -> Deny outcoming traffic
-  egress: "deny"
-
-  other: 
-    # parameters of pod annotations 
-    podAnnotations: {}
-
-  # additionalContainers:
-  #   - name: nameContainer 
-  #     dockerRepository: gcr.io/
-  #     dockerImage: name-container
-  #     containerPort: 80
-  #     nodePort: 30002
-  #     type: http
-  #     resources:
-  #       limits:
-  #         cpu: 100m
-  #         memory: 150Mi
-  #       requests: 
-  #         cpu: 50m 
-  #         memory: 100Mi
-  #     healthCheck:
-  #       initialDelaySeconds: 10
-  #       periodSeconds: 30
+  limits:
+    cpu: 100m
+    memory: 100Mi
+  replicasNumber: 1
+  requests:
+    cpu: 10m
+    memory: 30Mi

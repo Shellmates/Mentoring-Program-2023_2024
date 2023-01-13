@@ -76,7 +76,7 @@ spec:
         {{ if .Values.deployment.additionalContainers }}
         {{- range .Values.deployment.additionalContainers}}
         - name: {{ .name }}
-          image: "{{ .Values.deployment.dockerRepository }}/{{ .Values.deployment.name }}" 
+          image: "{{ .Values.deployment.dockerRepository }}/{{ .name }}" 
           {{ if .containerPort }}
           ports:
             {{if eq .type "http"}}

@@ -17,7 +17,7 @@ def argument_parser():
     parser = argparse.ArgumentParser(description="Auto assign challenge ports, update HAProxy configuration and deploy challenges to Kubernetes")
 
     parser.add_argument("-c", "--challenges", metavar="CHALLENGE", nargs="*", help="Paths to challenges")
-    parser.add_argument("-d", "--deploy", default=True, action="store_true", help="Assign port, deploy to HAProxy and Kubernetes, and create firewall rule (this is done by default)")
+    parser.add_argument("-d", "--deploy", default=DEPLOY, action="store_true", help="Assign port, deploy to HAProxy and Kubernetes, and create firewall rule (this is done by default)")
     parser.add_argument("-u", "--undeploy", action="store_true", help="Undeploy from HAProxy and Kubernetes, and disable or delete firewall rule (default is to disable)")
     parser.add_argument("--only-haproxy", action="store_true", help="Only update HAProxy configuration")
     parser.add_argument("-A", "--all", action="store_true", help="Apply to all challenges")
@@ -35,6 +35,7 @@ def argument_parser():
     parser.add_argument("-s", "--state", choices=[CHSTATE_HIDDEN, CHSTATE_VISIBLE], help="Change visibility state on CTFd")
     parser.add_argument("-w", "--wave", metavar="WAVE", type=int, help="Apply to specified wave of challenges")
     parser.add_argument("--not-wave", metavar="WAVE", type=int, help="Apply to challenges not of specified wave")
+    parser.add_argument("--update-helm-values", action="store_true", help="Update the default values in helm chart")
 
     return parser
 
@@ -101,9 +102,36 @@ def update_haproxy():
     gcloud_scp_l2r(f"{HAPROXY_CONFIG_DIR}/{HTTP_HOSTS_MAP}", HTTP_HOSTS_MAP_PATH, HAPROXY_USER, INSTANCE_NAME, INSTANCE_ZONE)
     gcloud_ssh_cmd(HAPROXY_USER, INSTANCE_NAME, INSTANCE_ZONE, "systemctl restart haproxy; systemctl status haproxy")
 
+def update_helm_default_values():
+    helm_values_file = f'{HELM_CHART_REPO}/values.yaml'
+    values = {}
+    values['dockerRepository'] = GCR_REPO
+    values['replicasNumber'] = DEFAULT_REPLICAS_NUMBER
+    values['egress'] = DEFAULT_EGRESS
+    values['limits'] = {
+        'cpu': DEFAULT_CPU_LIMITS,
+        'memory': DEFAULT_MEMRORY_LIMITS
+    }
+    values['requests'] = {
+        'cpu': DEFAULT_CPU_REQUESTS,
+        'memory': DEFAULT_MEMRORY_REQUESTS
+    }
+    values['healthCheck'] = {
+        'initialDelaySeconds': DEFAULT_INIT_DELAY_SECONDS,
+        'periodSeconds': DEFAULT_PERIOD_SECONDS
+    }
+    values['additionalContainers'] = {}
+    with open(helm_values_file, 'w') as f:
+        yaml.safe_dump({'deployment': values}, f)
+
 if __name__ == "__main__":
     parser = argument_parser()
     args = parser.parse_args()
+
+    if args.update_helm_values:
+        log('[!] Ignoring allother options as --update-helm-values specified')
+        update_helm_default_values()
+        sys.exit(0)
 
     if args.only_haproxy:
         log(f"[!] Ignoring all other options as --only-haproxy was specified")
