@@ -1,15 +1,13 @@
 author: m0kr4n3
 category: crypto
-description: |
-  > I read that hashing algorithms are irreversible, so I hashed my password and forgot it, can you recover it for me ?
-    (Put the password in the flag format  shellmates{...})
-
-  **Author** : m0kr4n3
+description: "> I read that hashing algorithms are irreversible, so I hashed my password\
+  \ and forgot it, can you recover it for me ?\n  (Put the password in the flag format\
+  \  shellmates{...})\n\n**Author** : m0kr4n3\n"
 difficulty: easy
 files:
-  - ./hash.txt
+- ./hash.txt
 flags:
-  - shellmates{300489}
+- shellmates{300489}
 name: 652AHS
 state: visible
 type: standard

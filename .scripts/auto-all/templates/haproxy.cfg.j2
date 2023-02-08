@@ -64,6 +64,26 @@ resolvers nameservers
 
     resolve_retries 3
 
+# TLS frontends
+
+{% if SSL_CERTIFICATE_PATH and SNI_MAP_PATH %}
+defaults
+  mode tcp
+  default_backend be_default
+  timeout connect 20000
+  timeout client  120000
+  timeout server  120000
+  tcp-request connection reject if { src -f /etc/haproxy/blacklist.lst }
+
+frontend tls
+  bind *:443 ssl crt {{ SSL_CERTIFICATE_PATH }}
+  tcp-request connection reject if { src_conn_rate(ip_blacklist) ge 50 }
+  tcp-request connection reject if { src_conn_cur(ip_blacklist) ge 50 }
+  tcp-request connection track-sc1 src table ip_blacklist
+  tcp-request content accept if { req_ssl_hello_type 1 }
+
+  use_backend %[ssl_fc_sni,lower,map_dom({{ SNI_MAP_PATH }})]
+{% endif %}
 
 # HTTP frontends
 

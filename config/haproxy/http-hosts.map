@@ -1,14 +1,1 @@
 #domainname     backendname
-leak.challs.ctf.shellmates.club    be_leak
-post-the-get.challs.ctf.shellmates.club    be_post-the-get
-sqli-1.challs.ctf.shellmates.club    be_sqli-1
-special-header.challs.ctf.shellmates.club    be_special-header
-render.challs.ctf.shellmates.club    be_render
-lsaas-1.challs.ctf.shellmates.club    be_lsaas-1
-lsaas-2.challs.ctf.shellmates.club    be_lsaas-2
-sqli-2.challs.ctf.shellmates.club    be_sqli-2
-lsaas-3.challs.ctf.shellmates.club    be_lsaas-3
-secret-agent.challs.ctf.shellmates.club    be_secret-agent
-reflected-note.challs.ctf.shellmates.club    be_reflected-note
-machines.challs.ctf.shellmates.club    be_machines
-cookies.challs.ctf.shellmates.club    be_cookies

@@ -57,14 +57,14 @@ def haproxy_cfg(filename, challenges, directory):
     content = template.render({
         "challenges": challenges,
         "HTTP_HOSTS_MAP_PATH": HTTP_HOSTS_MAP_PATH,
-        # "SNI_MAP_PATH": SNI_MAP_PATH,
+        "SNI_MAP_PATH": SNI_MAP_PATH,
         "TCP_TYPE": TCP_TYPE,
         "HTTP_TYPE": HTTP_TYPE,
         "NODES": NODES,
         "STATS_PORT": STATS_PORT,
         "STATS_USER": STATS_USER,
         "STATS_PASSWORD": STATS_PASSWORD,
-        # "SSL_CERTIFICATE_PATH": SSL_CERTIFICATE_PATH,
+        "SSL_CERTIFICATE_PATH": SSL_CERTIFICATE_PATH,
         "IP_BAN_MINUTES": IP_BAN_MINUTES,
         "CONN_RATE_SECONDS": CONN_RATE_SECONDS,
         "CONNS_PER_RATE": CONNS_PER_RATE,
@@ -95,11 +95,12 @@ def update_haproxy():
     challenges = parse_chals(CHALLENGES_JSON_PATH)
     haproxy_cfg(HAPROXY_CFG, challenges, HAPROXY_CONFIG_DIR)
     hosts_map(HTTP_HOSTS_MAP, challenges, HAPROXY_CONFIG_DIR)
-    # hosts_map(SNI_MAP, challenges, directory)
+    hosts_map(SNI_MAP, challenges, HAPROXY_CONFIG_DIR)
 
     # Copy the files to remote server and restart HAProxy
     gcloud_scp_l2r(f"{HAPROXY_CONFIG_DIR}/{HAPROXY_CFG}", HAPROXY_ROOT, HAPROXY_USER, INSTANCE_NAME, INSTANCE_ZONE)
     gcloud_scp_l2r(f"{HAPROXY_CONFIG_DIR}/{HTTP_HOSTS_MAP}", HTTP_HOSTS_MAP_PATH, HAPROXY_USER, INSTANCE_NAME, INSTANCE_ZONE)
+    gcloud_scp_l2r(f"{HAPROXY_CONFIG_DIR}/{SNI_MAP}", SNI_MAP_PATH, HAPROXY_USER, INSTANCE_NAME, INSTANCE_ZONE)
     gcloud_ssh_cmd(HAPROXY_USER, INSTANCE_NAME, INSTANCE_ZONE, "systemctl restart haproxy; systemctl status haproxy")
 
 def update_helm_default_values():
@@ -121,6 +122,9 @@ def update_helm_default_values():
         'periodSeconds': DEFAULT_PERIOD_SECONDS
     }
     values['additionalContainers'] = {}
+    values['other'] = {
+        'podAnnotations': {}
+    }
     with open(helm_values_file, 'w') as f:
         yaml.safe_dump({'deployment': values}, f)
 

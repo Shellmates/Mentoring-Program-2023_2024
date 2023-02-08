@@ -1,14 +1,17 @@
 author: m0kr4n3
 category: crypto
-description: |
-  > I generated my pair of keys and encrypted my flag, can you decrypt it ?
+description: '> I generated my pair of keys and encrypted my flag, can you decrypt
+  it ?
+
 
   **Author** : m0kr4n3
+
+  '
 difficulty: easy
 files:
-  - ./RSA0.txt
+- ./RSA0.txt
 flags:
-  - shellmates{c0ngr4tz_n0w_y0u_kn0w_h0w_RSA_w0rk5}
+- shellmates{c0ngr4tz_n0w_y0u_kn0w_h0w_RSA_w0rk5}
 name: RSA0
 state: visible
 type: standard

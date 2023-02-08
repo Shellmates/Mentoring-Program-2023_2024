@@ -1,9 +1,10 @@
 author: r1v3nch
 author_link: https://github.com/Walid-Berrouk
 category: web-server
-connection_info: http://special-header.web-server.challs.ctf.shellmates.club/
+connection_info: http://special-header.web-server.challs.ctf.shellmates.club
 deployment:
   autoban: false
+  conn_type: http
   containerPort: 5000
   deployed: true
   dockerImage: special-header
@@ -22,13 +23,16 @@ deployment:
     cpu: 10m
     memory: 30Mi
   type: http
-description: |
-  > Did you know that Web apps work with the HTTP protocol... Request, Response and all that stuff ?
+description: '> Did you know that Web apps work with the HTTP protocol... Request,
+  Response and all that stuff ?
+
 
   **Author** : r1v3nch
+
+  '
 difficulty: easy
 flags:
-  - shellmates{1t_$t1ll_n33ds_t0_b3_s3nt_1n_th3_b0dy_th0}
+- shellmates{1t_$t1ll_n33ds_t0_b3_s3nt_1n_th3_b0dy_th0}
 name: special-header
 state: visible
 type: standard

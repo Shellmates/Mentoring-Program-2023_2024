@@ -1,19 +1,18 @@
 author: hfz1337
 author_link: https://github.com/hfz1337
 category: pwn
-connection_info: nc -v pwn.challs.ctf.shellmates.club 1410
+connection_info: nc -v pwn.ctf.shellmates.club 1412
 deployment:
   autoban: false
   conn_type: nc
   containerPort: 1337
   deployed: true
-  dockerImage: gcr.io/mentoring-program-371116/freenote
   isolate: false
   name: freenote
-  nodePort: 30410
+  nodePort: 30412
   type: tcp
-description: "> OneNote started annoying me, so I developed FreeNote!  \n> Have fun\
-  \ creating & deleting\xB2 your notes :)   \n\n **Author**: hfz1337"
+description: "> OneNote started annoying me, so I developed FreeNote!\n> Have fun\
+  \ creating & deleting\xB2 your notes :)\n\n\n\n **Author**: hfz1337"
 difficulty: hard
 extra:
   decay: 50

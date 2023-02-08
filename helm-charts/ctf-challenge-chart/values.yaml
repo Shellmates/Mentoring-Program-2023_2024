@@ -8,6 +8,8 @@ deployment:
   limits:
     cpu: 100m
     memory: 100Mi
+  other:
+    podAnnotations: {}
   replicasNumber: 1
   requests:
     cpu: 10m

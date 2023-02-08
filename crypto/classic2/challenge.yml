@@ -1,19 +1,22 @@
 author: souad
 category: crypto
-description: |
-  > We say that classic ciphers aren't secure anymore, can you prove me that ?
+description: '> We say that classic ciphers aren''t secure anymore, can you prove
+  me that ?
+
 
   **Author** : souad
+
+  '
 difficulty: easy
 files:
-  - ./enc
-  - ./challenge.py
+- ./enc
+- ./challenge.py
 flags:
-  - shellmates{bRutEF0rc3_MaY_com3_h4Ndy}
+- shellmates{bRutEF0rc3_MaY_com3_h4Ndy}
 name: classic 2
 state: visible
 tags:
-  - rot
+- rot
 type: standard
 value: 100
 version: '0.1'

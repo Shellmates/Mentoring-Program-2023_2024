@@ -7,15 +7,16 @@ INSTANCE_ZONE = "europe-west1-b"
 HAPROXY_USER = "root"
 PROJECT_ID = "mentoring-program-371116"
 GCR_REPO = f"gcr.io/{PROJECT_ID}"
+DOMAIN_NAME = "ctf.shellmates.club"
 NODES = [
     {
         "name": "node1",
-        "ip": "10.132.0.5"
+        "ip": "10.132.0.49"
     },
 ]
 MAX_NODES = 1
 # NODES_FQDN = "gke-nodes.internal"
-NODES_FQDN = "10.132.0.5"
+NODES_FQDN = "10.132.0.49"
 CTFD_LINK = "http://ctf.shellmates.club/"
 
 # Firewall rules
@@ -31,14 +32,13 @@ DEFAULT_DELETE_FW = False
 STATS_PORT = 8080
 STATS_USER = "shellmates"
 STATS_PASSWORD = "4YALhtxXP4qAsqPNxRinok0UeXDu6H"
-DOMAIN_NAME = ""
 HAPROXY_ROOT = "/etc/haproxy"
 HAPROXY_MAPS_ROOT = f"{HAPROXY_ROOT}/maps"
 HTTP_HOSTS_MAP = "http-hosts.map"
 SNI_MAP = "sni.map"
 HTTP_HOSTS_MAP_PATH = f"{HAPROXY_MAPS_ROOT}/{HTTP_HOSTS_MAP}"
 SNI_MAP_PATH = f"{HAPROXY_MAPS_ROOT}/{SNI_MAP}"
-SSL_CERTIFICATE_PATH = f"/etc/haproxy/{DOMAIN_NAME}.pem"
+SSL_CERTIFICATE_PATH = f"/etc/haproxy/certs/{DOMAIN_NAME}.pem"
 TEMPLATES_DIR = "templates"
 HAPROXY_CFG = "haproxy.cfg"
 HAPROXY_CONFIG_DIR = "config/haproxy"

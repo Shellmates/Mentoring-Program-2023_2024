@@ -115,7 +115,11 @@ def add_info(chalpath):
         if chalyml['author'] not in chalyml['description']:
             chalyml['description'] += f'   \n\n **Author**: {chalyml["author"]}'
         add_scoring_info(chalyml)
-        add_deployment_info(chalyml, chalpath)
+        if dep := chalyml.get('deployment'):
+            if not dep.get('isolate'):
+                add_deployment_info(chalyml, chalpath)
+            else:
+                add_isolation_info(chalyml)
     with open(ymlfile, 'w') as f:
         yaml.safe_dump(chalyml, f, default_flow_style=False)
 
@@ -145,14 +149,16 @@ def add_deployment_info(chalyml, chalpath):
         }
         for key, val in info.items():
             chalyml['deployment'].setdefault(key, val)
-        add_isolation_info(chalyml)
     except KeyError as e:
         raise DeployException(e)
 
 def add_isolation_info(chalyml):    
-    if chalyml.get('deployment').get('isolate'):
-        name = chalyml['deployment']['name']
-        chalyml['docker_image'] = f'{GCR_REPO}/{name}:latest'
+    chalyml['type'] = 'docker'
+    if chalyml.get('extra'):
+        del chalyml['extra']
+    name = normalize_chalname(chalyml['name']),
+    chalyml['deployment']['name'] = name
+    chalyml['docker_image'] = f'{GCR_REPO}/{name}:{name}'
 
 def add_conn_info(chalyml, chal: Challenge):
     if deployment := chalyml.get('deployment'):
@@ -181,7 +187,7 @@ def load_chal(chalpath, warn=True):
         name = chal_data['name']
         log(f"[*] Loading challenge '{name}'")
 
-        if chal_data.get("deployment"):
+        if chal_data.get("deployment") and not chal_data['deployment'].get('isolate'):
             chal = Challenge(
                 chal_data["deployment"]["name"],
                 chal_data["deployment"]["type"],
@@ -195,7 +201,6 @@ def load_chal(chalpath, warn=True):
         else:
             warn and log(f"[!] Skipping challenge '{name}' as it doesn't contain a 'deployment' section")
             chal = None
-
     return chal
 
 def update_chal_data(chal_data, chal: Challenge):
